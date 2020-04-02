@@ -1,0 +1,10 @@
+.top{
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+.bottom{
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+}
