@@ -4,6 +4,7 @@ import "./card.css"
 export default function Card(props){
 	const myStyle = {
 		position: "relative",
+		fontSize: "24px",
 		width: "100px",
 		height: "200px",
 		border: "1px solid white",

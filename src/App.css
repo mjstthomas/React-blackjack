@@ -2,7 +2,10 @@
   text-align: center;
   padding-left: 60px;
 }
-
+.score{
+  border: 1px solid black;
+  float: right;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
