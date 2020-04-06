@@ -5,6 +5,7 @@
 .score{
   border: 1px solid black;
   float: right;
+  margin: 0;
 }
 .App-logo {
   height: 40vmin;
@@ -30,6 +31,18 @@
 
 .App-link {
   color: #61dafb;
+}
+body{
+  background-color: green;
+}
+.player{
+  position: sticky;
+  bottom: 0;
+}
+.playerBoard{
+  height: 200px;
+  width: 100%;
+  margin: 25px;
 }
 
 @keyframes App-logo-spin {
