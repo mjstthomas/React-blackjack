@@ -9,10 +9,9 @@ export default function Card(props){
 		height: "200px",
 		border: "1px solid white",
 		borderRadius: "15px",
-		float: "left",
+		float: "right",
 		backgroundColor: "black",
-		color: "white",
-		marginLeft: "-50px"
+		marginLeft: "-100px"
 	}
 		return (
 			<div style= {myStyle} className="Card">
