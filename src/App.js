@@ -46,19 +46,15 @@ class App extends React.Component {
     console.log(this.state.dealerTurn)
   }
   //Dealer functions
-  handleDealer = () => {
-    this.interval = setInterval(() => {
-      const newCard = this.state.cards.shift()
-      this.setState({
-        dealerCards: this.state.dealerCards.concat(newCard)
-      })
-    }, 1000)
+  handleDealer= () => {
+    this.interval = setInterval(()=>{
+    const newCard = this.state.cards.shift()
+        this.setState({
+          dealerCards: this.state.dealerCards.concat(newCard)
+    })
+  }, 1000)
   }
-  stopDeal = () => {
-    clearInterval(this.interval)
-  }
-
-
+  stopDeal = () => clearInterval(this.interval)
   render(){
     const playerhand = this.state.playerCards.map(cards => <PlayerCard key={cards.id} card={cards.face} />)
     const playerValue = this.state.playerCards.reduce((acc, obj) => {
@@ -66,19 +62,20 @@ class App extends React.Component {
       }, 0)
     const dealerhand = this.state.dealerCards.map(cards => <DealerCard key={cards.id} card={cards.face} />)
     const dealerValue = this.state.dealerCards.reduce((acc, obj) => {
-        return acc + obj.value
-      }, 0)
+      return acc + obj.value
+    }, 0)
     const visualDeck = this.state.cards.map(cards => <Card key={cards.id} card={cards.face} />)
     return (
       <div className="App">
-        <Dealer 
+        {this.state.dealerTurn === true && <Dealer 
           dealerTurn = {this.state.dealerTurn}
           dealerCards={this.state.dealerCards}
           dealerhand={dealerhand}
           dealerValue={dealerValue}
           handleDealer={this.handleDealer}
           stopDeal={this.stopDeal}
-        />
+          cards = {this.state.cards}
+        />}
         {visualDeck}
         <div className="centerBoard"> </div>
         <br />
