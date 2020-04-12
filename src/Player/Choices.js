@@ -5,6 +5,7 @@ export default function Choices(props){
 	return(
 		<div>
 			<button type="button" onClick={props.deckShuffle}>Shuffle</button>
-        	<button type="button" onClick={playerSwitch}>Deal</button>
+        	<button type="button" onClick={playerSwitch} >Deal</button>
+        	<button type="button" onClick={props.changeSides}>Stay</button>
         </div>)
 }

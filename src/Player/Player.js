@@ -4,12 +4,35 @@ import Value from './Value'
 import Choices from './Choices'
 import PlayerCard from './PlayerCards'
 
-export default function Player(props){
-	return (
-		<div className="player">
-			<Hand playerhand={props.playerhand} playerCards = {props.playerCards}/>
-			<Value playerValue = {props.playerValue} />
-			<Choices deckShuffle={props.deckShuffle} handleDeal={props.handleDeal} playerValue={props.playerValue} changeSides={props.changeSides} />
-		</div>
-	)
+class Player extends React.Component{
+state = {
+	playerCards: []
 }
+handleDeal = () =>{
+	const newCard = this.props.cards.shift()
+          this.setState({
+          playerCards: this.state.playerCards.concat(newCard)
+        })
+     }
+
+	render(props){
+	const playerhand = this.state.playerCards.map(cards => <PlayerCard key={cards.id} card={cards.face} />)
+	const playerValue = this.state.playerCards.reduce((acc, obj) => {
+          return acc + obj.value
+        }, 0)
+		return (
+			<div className="player">
+				<Hand playerhand={playerhand} playerCards = {this.state.playerCards}/>
+				<Value playerValue = {playerValue}  />
+				<Choices 
+					deckShuffle={this.props.deckShuffle}  
+					handleDeal={this.handleDeal} 
+					playerValue={playerValue} 
+					changeSides={this.props.changeSides}
+				/>
+			</div>
+		)
+	}
+}
+
+export default Player

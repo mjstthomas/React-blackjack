@@ -7,6 +7,13 @@
   float: right;
   margin: 0;
 }
+.dealerScore{
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 1px solid black;
+  margin: 10px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -33,7 +40,7 @@
   color: #61dafb;
 }
 body{
-  background-color: green;
+  background-image: url("https://us.123rf.com/450wm/malekas/malekas1405/malekas140500008/28502181-green-felt-texture.jpg?ver=6");
 }
 .dealerBoard{
   height: 200px;

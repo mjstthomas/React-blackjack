@@ -15,9 +15,29 @@ class App extends React.Component {
     cards: [],
     playerCards: [],
     dealerCards: [],
-    dealerTurn: false
+    dealerTurn: false,
+    gameStart: false
   }
   //Player Functions
+  gameStart = () =>{
+    for (let i = 0; i < 4; i++){
+      if (this.state.dealerTurn = true){
+        const dCard = this.state.cards.shift()
+           this.setState({
+                dealerCards: this.state.dealerCards.concat(dCard),
+                dealerTurn: false
+            }) 
+      } else {
+        const pCard = this.state.cards.shift()
+           this.setState({
+                dealerCards: this.state.playerCards.concat(pCard),
+                dealerTurn: true
+            }) 
+      }
+    }
+    this.setState({gameStart: true})
+  }
+
   deckShuffle = (array) => {
     const newDeck = array;
     for(let i = 0; i < newDeck.length; i++){
@@ -34,58 +54,46 @@ class App extends React.Component {
     console.log(this.state.origDeck)
     console.log(newDeck)
     console.log(this.state.cards)
+    this.gameStart()
   }
-  handleDeal = event => {
-      const newCard = this.state.cards.shift()
-      this.setState({
-        playerCards: this.state.playerCards.concat(newCard)
-      })
-  }
+
   changeSides = () => {
-    this.setState({dealerTurn: true})
+    this.setState({dealerTurn: !this.state.dealerTurn})
     console.log(this.state.dealerTurn)
   }
   //Dealer functions
-  handleDealer= () => {
-    this.interval = setInterval(()=>{
-    const newCard = this.state.cards.shift()
-        this.setState({
-          dealerCards: this.state.dealerCards.concat(newCard)
-    })
-  }, 1000)
-  }
-  stopDeal = () => clearInterval(this.interval)
+  // stopDeal = (dealerValue) => {
+  //   setInterval(() => {
+  //     dealerValue >= 21 && clearInterval(this.interval)
+  //   }, 1000)
+  // }
+
+
   render(){
-    const playerhand = this.state.playerCards.map(cards => <PlayerCard key={cards.id} card={cards.face} />)
-    const playerValue = this.state.playerCards.reduce((acc, obj) => {
-        return acc + obj.value
-      }, 0)
-    const dealerhand = this.state.dealerCards.map(cards => <DealerCard key={cards.id} card={cards.face} />)
-    const dealerValue = this.state.dealerCards.reduce((acc, obj) => {
-      return acc + obj.value
-    }, 0)
     const visualDeck = this.state.cards.map(cards => <Card key={cards.id} card={cards.face} />)
     return (
       <div className="App">
-        {this.state.dealerTurn === true && <Dealer 
-          dealerTurn = {this.state.dealerTurn}
-          dealerCards={this.state.dealerCards}
-          dealerhand={dealerhand}
-          dealerValue={dealerValue}
-          handleDealer={this.handleDealer}
-          stopDeal={this.stopDeal}
-          cards = {this.state.cards}
-        />}
+        <div className="dealerBoard">
+          {this.state.dealerTurn === true && <Dealer 
+            dealerTurn = {this.state.dealerTurn}
+            dealerCards={this.state.dealerCards}
+            dealerValue = {this.state.dealerValue}
+            handleDealer={this.handleDealer}
+            cards = {this.state.cards}
+          />}
+        </div>
         {visualDeck}
         <div className="centerBoard"> </div>
         <br />
         <Player 
-          playerhand={playerhand} 
-          playerValue={playerValue} 
+          playerValue={this.state.playerValue}
           deckShuffle={() => this.deckShuffle(deck)} 
           handleDeal={this.handleDeal}
           playerCards = {this.state.playerCards}
           changeSides = {this.changeSides}
+          gameStart = {this.gameStart}
+          didGameStart = {this.state.gameStart}
+          cards = {this.state.cards}
         />
       </div>
     );
