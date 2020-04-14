@@ -6,18 +6,12 @@ import PlayerCard from './PlayerCards'
 
 class Player extends React.Component{
 state = {
-	playerCards: []
+	playerCards: this.props.playerCards
 }
-handleDeal = () =>{
-	const newCard = this.props.cards.shift()
-          this.setState({
-          playerCards: this.state.playerCards.concat(newCard)
-        })
-     }
 
 	render(props){
-	const playerhand = this.state.playerCards.map(cards => <PlayerCard key={cards.id} card={cards.face} />)
-	const playerValue = this.state.playerCards.reduce((acc, obj) => {
+	const playerhand = this.props.playerCards.map(cards => <PlayerCard key={cards.id} card={cards.face} />)
+	const playerValue = this.props.playerCards.reduce((acc, obj) => {
           return acc + obj.value
         }, 0)
 		return (
@@ -26,7 +20,7 @@ handleDeal = () =>{
 				<Value playerValue = {playerValue}  />
 				<Choices 
 					deckShuffle={this.props.deckShuffle}  
-					handleDeal={this.handleDeal} 
+					handleDeal={this.props.handleDeal} 
 					playerValue={playerValue} 
 					changeSides={this.props.changeSides}
 				/>

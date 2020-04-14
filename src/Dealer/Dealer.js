@@ -5,27 +5,18 @@ import DealerCard from './DealerCard'
 
 class Dealer extends React.Component{
 
-	state={
-		dealerCards: []
-	}
-
-  handleDealer= () => {
-      	const newCard = this.props.cards.shift()
-           this.setState({
-                dealerCards: this.state.dealerCards.concat(newCard)
-            }) 
-  }
   
-deal = (dealerValue) => dealerValue < 17 ? setTimeout(this.handleDealer(), 1000) : null
+deal = (dealerValue) => dealerValue < 17 ? setTimeout(this.props.handleDealer(), 1000) : null
 	render(props){
-		const dealerValue = this.state.dealerCards.reduce((acc, obj) => {
+		const dealerValue = this.props.dealerCards.reduce((acc, obj) => {
        		return acc + obj.value
     	 }, 0)
-		this.deal(dealerValue)
-		const dealerhand = this.state.dealerCards.map(cards => <DealerCard key={cards.id} card={cards.face} />)
+		const dealerhand = this.props.dealerCards.map(cards => <DealerCard key={cards.id} card={cards.face} />)
+		const turn = () => this.props.dealerTurn ? this.deal(dealerValue) : null
+		turn()
 	return (
 		<div className="dealer">
-			<Hand dealerhand={dealerhand} dealerCards ={this.state.dealerCards} dealerTurn={this.props.dealerTurn} />
+			<Hand dealerhand={dealerhand} dealerCards ={this.props.dealerCards} dealerTurn={this.props.dealerTurn} />
 			<Value dealerValue ={dealerValue} />
 		</div>
 	)}

@@ -20,22 +20,22 @@ class App extends React.Component {
   }
   //Player Functions
   gameStart = () =>{
+    const player = []
+    const dealer = []
     for (let i = 0; i < 4; i++){
-      if (this.state.dealerTurn = true){
-        const dCard = this.state.cards.shift()
-           this.setState({
-                dealerCards: this.state.dealerCards.concat(dCard),
-                dealerTurn: false
-            }) 
+      const Card = this.state.cards.shift()
+      if (i % 2 !== 0){
+            dealer.push(Card)
       } else {
-        const pCard = this.state.cards.shift()
-           this.setState({
-                dealerCards: this.state.playerCards.concat(pCard),
-                dealerTurn: true
-            }) 
+            player.push(Card)
       }
     }
-    this.setState({gameStart: true})
+    this.setState({
+      playerCards: player,
+      dealerCards: dealer,
+      gameStart: true
+    })
+    console.log(this.state.playerCards)
   }
 
   deckShuffle = (array) => {
@@ -47,15 +47,22 @@ class App extends React.Component {
       newDeck[j] = temp
     }
     this.setState({
-      cards: newDeck,
-      playerCards: [],
-      playerHand: 0
+      cards: newDeck
     })
-    console.log(this.state.origDeck)
-    console.log(newDeck)
-    console.log(this.state.cards)
-    this.gameStart()
+
+    setTimeout(() => {
+      this.gameStart()
+    }, 1000)
+    console.log(this.state.playerCards)
+    console.log(this.state.dealerCards)
   }
+
+  handleDeal = () =>{
+  const newCard = this.state.cards.shift()
+          this.setState({
+          playerCards: this.state.playerCards.concat(newCard)
+        })
+     }
 
   changeSides = () => {
     this.setState({dealerTurn: !this.state.dealerTurn})
@@ -67,34 +74,39 @@ class App extends React.Component {
   //     dealerValue >= 21 && clearInterval(this.interval)
   //   }, 1000)
   // }
-
+  handleDealer= () => {
+        const newCard = this.state.cards.shift()
+           this.setState({
+                dealerCards: this.state.dealerCards.concat(newCard)
+            }) 
+  }
 
   render(){
     const visualDeck = this.state.cards.map(cards => <Card key={cards.id} card={cards.face} />)
     return (
       <div className="App">
         <div className="dealerBoard">
-          {this.state.dealerTurn === true && <Dealer 
-            dealerTurn = {this.state.dealerTurn}
-            dealerCards={this.state.dealerCards}
-            dealerValue = {this.state.dealerValue}
-            handleDealer={this.handleDealer}
-            cards = {this.state.cards}
-          />}
-        </div>
-        {visualDeck}
-        <div className="centerBoard"> </div>
-        <br />
-        <Player 
-          playerValue={this.state.playerValue}
-          deckShuffle={() => this.deckShuffle(deck)} 
-          handleDeal={this.handleDeal}
-          playerCards = {this.state.playerCards}
-          changeSides = {this.changeSides}
-          gameStart = {this.gameStart}
-          didGameStart = {this.state.gameStart}
-          cards = {this.state.cards}
-        />
+                  <Dealer 
+                    dealerTurn = {this.state.dealerTurn}
+                    dealerCards={this.state.dealerCards}
+                    dealerValue = {this.state.dealerValue}
+                    handleDealer={this.handleDealer}
+                    cards = {this.state.cards}
+                  />
+                </div>
+                {visualDeck}
+                <div className="centerBoard"> </div>
+                <br />
+                <Player 
+                  playerValue={this.state.playerValue}
+                  deckShuffle={() => this.deckShuffle(deck)} 
+                  handleDeal={this.handleDeal}
+                  playerCards = {this.state.playerCards}
+                  changeSides = {this.changeSides}
+                  gameStart = {this.gameStart}
+                  didGameStart = {this.state.gameStart}
+                  cards = {this.state.cards}
+                />
       </div>
     );
   }
