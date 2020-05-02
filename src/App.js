@@ -6,19 +6,31 @@ import Player from './Player/Player'
 import Dealer from './Dealer/Dealer'
 import PlayerCard from './Player/PlayerCards'
 import DealerCard from './Dealer/DealerCard'
-// import Dealer from './Dealer/Dealer'
+import ScoreBoard from './ScoreBoard'
 
 
 class App extends React.Component {
   state = {
-    origDeck: deck,
     cards: [],
     playerCards: [],
     dealerCards: [],
     dealerTurn: false,
-    gameStart: false
+    gameStart: false,
+    handOver: false
+  }
+
+  newGameFunction = () =>{
+    this.setState({
+      cards: [],
+      playerCards: [],
+      dealerCards: [],
+      dealerTurn: false,
+      gameStart: false,
+      handOver: false
+    })
   }
   //Player Functions
+  //this function takes the shuffled deck and deals 2 cards to the player and dealer
   gameStart = () =>{
     const player = []
     const dealer = []
@@ -35,11 +47,11 @@ class App extends React.Component {
       dealerCards: dealer,
       gameStart: true
     })
-    console.log(this.state.playerCards)
   }
+  //this function takes the deck array and shuffles each card object randomly
 
-  deckShuffle = (array) => {
-    const newDeck = array;
+  deckShuffle = () => {
+    const newDeck = [...deck]
     for(let i = 0; i < newDeck.length; i++){
       const j = Math.floor(Math.random() * newDeck.length)
       const temp = newDeck[i]
@@ -49,31 +61,33 @@ class App extends React.Component {
     this.setState({
       cards: newDeck
     })
-
     setTimeout(() => {
       this.gameStart()
     }, 1000)
-    console.log(this.state.playerCards)
-    console.log(this.state.dealerCards)
   }
 
+  newHand = () => {
+    this.setState({
+      dealerTurn: false,
+      playerCards: [],
+      dealerCards: [],
+      handOver: false
+    })
+    this.gameStart()
+  }
+//this function deals cards to the player
   handleDeal = () =>{
   const newCard = this.state.cards.shift()
+  const newHand = [...this.state.playerCards, newCard]
           this.setState({
-          playerCards: this.state.playerCards.concat(newCard)
+          playerCards: newHand
         })
      }
-
+//changes from player to dealer functions
   changeSides = () => {
     this.setState({dealerTurn: !this.state.dealerTurn})
-    console.log(this.state.dealerTurn)
   }
-  //Dealer functions
-  // stopDeal = (dealerValue) => {
-  //   setInterval(() => {
-  //     dealerValue >= 21 && clearInterval(this.interval)
-  //   }, 1000)
-  // }
+//deals cards to the dealer 
   handleDealer= () => {
         const newCard = this.state.cards.shift()
            this.setState({
@@ -81,6 +95,17 @@ class App extends React.Component {
             }) 
   }
 
+  //compares both hands values and logs a winner
+  handOver = () =>{
+    this.setState({
+      handOver: true,
+      dealerTurn: false
+    })
+    console.log('compare hands')
+  }
+  nextHand = () =>{
+    this.setState({handOver: false})
+  }
   render(){
     const visualDeck = this.state.cards.map(cards => <Card key={cards.id} card={cards.face} />)
     return (
@@ -92,8 +117,17 @@ class App extends React.Component {
                     dealerValue = {this.state.dealerValue}
                     handleDealer={this.handleDealer}
                     cards = {this.state.cards}
+                    handOver = {this.handOver}
                   />
                 </div>
+                <ScoreBoard 
+                  playerCards = {this.state.playerCards}
+                  dealerCards = {this.state.dealerCards}
+                  handOver = {this.state.handOver}
+                  nextHand = {this.nextHand}
+                  deckShuffle= {() => this.deckShuffle(deck)}
+                  deck = {this.state.cards}
+                  />
                 {visualDeck}
                 <div className="centerBoard"> </div>
                 <br />
@@ -102,6 +136,7 @@ class App extends React.Component {
                   deckShuffle={() => this.deckShuffle(deck)} 
                   handleDeal={this.handleDeal}
                   playerCards = {this.state.playerCards}
+                  newHand = {this.newHand}
                   changeSides = {this.changeSides}
                   gameStart = {this.gameStart}
                   didGameStart = {this.state.gameStart}

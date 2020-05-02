@@ -1,11 +1,14 @@
 import React from 'react'
 
-export default function Choices(props){
-	const playerSwitch = props.playerValue < 21 ? props.handleDeal : props.changeSides;
-	return(
-		<div>
-			<button type="button" onClick={props.deckShuffle}>Shuffle</button>
-        	<button type="button" onClick={playerSwitch} >Deal</button>
-        	<button type="button" onClick={props.changeSides}>Stay</button>
-        </div>)
+class Choices extends React.Component{
+	render(props){
+		const playerSwitch = this.props.playerValue < 21 ? this.props.handleDeal : this.props.changeSides;
+		return(
+			<div>
+				{!this.props.gameStart && <button type="button" onClick={this.props.deckShuffle}>New Game?</button>}
+				{this.props.gameStart && <button type="button" onClick={this.props.newHand}>New Hand</button>}
+	        	{this.props.gameStart && <button type="button" onClick={playerSwitch} >Deal</button>}
+	        	{this.props.gameStart && <button type="button" onClick={this.props.changeSides}>Stay</button>}
+	        </div>)}
 }
+export default Choices

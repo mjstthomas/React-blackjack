@@ -60,6 +60,13 @@ body{
   width: 100%;
   margin: 25px;
 }
+.Board{
+  list-style: none;
+}
+.Board li{
+  display: inline-block;
+  margin: 0 20%;
+}
 
 @keyframes App-logo-spin {
   from {

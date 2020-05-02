@@ -6,11 +6,14 @@ import DealerCard from './DealerCard'
 class Dealer extends React.Component{
 
   
-deal = (dealerValue) => dealerValue < 17 ? setTimeout(this.props.handleDealer(), 1000) : null
+deal = (dealerValue) => dealerValue < 17 ? setTimeout(this.props.handleDealer(), 1000) : this.props.handOver()
 	render(props){
 		const dealerValue = this.props.dealerCards.reduce((acc, obj) => {
-       		return acc + obj.value
-    	 }, 0)
+		  if (obj.face === "A"){
+		    return acc + 11 > 21 ? acc + 1 : acc + 11;
+		  }
+		  return acc + obj.value;
+		}, 0)
 		const dealerhand = this.props.dealerCards.map(cards => <DealerCard key={cards.id} card={cards.face} />)
 		const turn = () => this.props.dealerTurn ? this.deal(dealerValue) : null
 		turn()

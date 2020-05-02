@@ -2,7 +2,7 @@ export default [
 {
 	suit: "S",
 	face: "A",
-	value: 1,
+	value: 11,
 	id: 1
 },
 {
@@ -79,7 +79,7 @@ export default [
 {
 	suit: "H",
 	face: "A",
-	value: 1,
+	value: 11,
 	id: 14
 },
 {
@@ -156,7 +156,7 @@ export default [
 {
 	suit: "C",
 	face: "A",
-	value: 1,
+	value: 11,
 	id: 27
 },
 {
@@ -233,7 +233,7 @@ export default [
 {
 	suit: "D",
 	face: "A",
-	value: 1,
+	value: 11,
 	id: 40
 },
 {
