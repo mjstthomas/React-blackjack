@@ -6,9 +6,10 @@
 
 .player-image{
     background-color: gray;
-    width: 80px;
-    height: 150px;
-    border-radius: 25px;
+    width: 50px;
+    height: 90px;
+    margin-top: 5px;
+    border-radius: 15px;
     box-shadow: 3px 5px 5px 3px black;
 }
 
@@ -24,5 +25,5 @@
     margin: 0;
     height: 5px;
     width: 1px;
-    float: left;
+    box-shadow: 2px 2px 2px black;
 }

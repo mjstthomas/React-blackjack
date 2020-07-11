@@ -17,15 +17,11 @@ class DealerContainer extends React.Component {
         console.log(healthArray.length)
         return (
             <div className="dealer-image-container">
-                <div className="dealer-image">
-
-                </div>
                 <div className="dealer-health-container">
                     {healthBar}
                 </div>
-
-
-
+                <div className="dealer-image">
+                </div>
             </div>
         )
     }

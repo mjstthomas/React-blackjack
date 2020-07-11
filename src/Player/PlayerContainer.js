@@ -16,14 +16,11 @@ class PlayerContainer extends React.Component {
         const healthBar = healthArray.map(item => <div className="health"></div>)
         return (
             <div className="Player-image-container">
-                <div className="player-image">
-
-                </div>
                 <div className="player-health-container">
                     {healthBar}
                 </div>
-
-
+                <div className="player-image">
+                </div>
             </div>
         )
     }
