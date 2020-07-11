@@ -19,16 +19,25 @@ state = {
 		}, 0)
 		return (
 			<div className="player">
-				<Hand playerhand={playerhand} playerCards = {this.state.playerCards}/>
+				
 				<Value playerValue = {playerValue}  />
-				<Choices 
-					deckShuffle={this.props.deckShuffle}  
-					handleDeal={this.props.handleDeal} 
-					playerValue={playerValue} 
-					changeSides={this.props.changeSides}
-					newHand = {this.props.newHand}
-					gameStart = {this.props.didGameStart}
-				/>
+
+				<div className="player-game-container">
+					<Hand 
+						playerhand={playerhand} 
+						playerCards = {this.state.playerCards}
+					/>
+					<Choices 
+						deckShuffle={this.props.deckShuffle}  
+						handleDeal={this.props.handleDeal} 
+						playerValue={playerValue} 
+						changeSides={this.props.changeSides}
+						newHand = {this.props.newHand}
+						gameStart = {this.props.didGameStart}
+						dealerTurn = {this.props.dealerTurn}
+						showDealerCard = {this.props.showDealerCard}
+					/>
+				</div>
 			</div>
 		)
 	}

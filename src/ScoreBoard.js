@@ -12,15 +12,19 @@ class ScoreBoard extends React.Component{
 
 		if (playerScore > dealerScore && playerScore < 22){
 			this.setState({playerScore: this.state.playerScore + 1})
+			this.props.handleDealerHealth()
 			this.props.nextHand()
 		} else if (dealerScore > 21 && playerScore < 22){
 			this.setState({playerScore: this.state.playerScore + 1})
+			this.props.handleDealerHealth()
 			this.props.nextHand()
 		} else if (dealerScore > playerScore && dealerScore < 22){
 			this.setState({dealerScore: this.state.dealerScore + 1})
+			this.props.handlePlayerHealth()
 			this.props.nextHand()
 		} else if (playerScore > 21 && dealerScore < 22){
 			this.setState({dealerScore: this.state.dealerScore + 1})
+			this.props.handlePlayerHealth()
 			this.props.nextHand()
 		} else {
 			this.props.nextHand()

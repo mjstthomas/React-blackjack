@@ -4,16 +4,20 @@ import deck from './deck'
 import Card from './Card'
 import Player from './Player/Player'
 import Dealer from './Dealer/Dealer'
-import PlayerCard from './Player/PlayerCards'
-import DealerCard from './Dealer/DealerCard'
 import ScoreBoard from './ScoreBoard'
+import PlayerContainer from './Player/PlayerContainer'
+import DealerContainer from './Dealer/DealerContainer'
 
 
 class App extends React.Component {
   state = {
     cards: [],
     playerCards: [],
+    playerHealth: 100,
     dealerCards: [],
+    dealerCardsOnTurn: [],
+    showDealerCard: false,
+    dealerHealth: 100,
     dealerTurn: false,
     gameStart: false,
     handOver: false
@@ -24,6 +28,7 @@ class App extends React.Component {
       cards: [],
       playerCards: [],
       dealerCards: [],
+      dealerCardsOnTurn: [],
       dealerTurn: false,
       gameStart: false,
       handOver: false
@@ -45,14 +50,17 @@ class App extends React.Component {
     this.setState({
       playerCards: player,
       dealerCards: dealer,
+      dealerCardsOnTurn: dealer,
       gameStart: true
     })
   }
   //this function takes the deck array and shuffles each card object randomly
 
   deckShuffle = () => {
-    const newDeck = [...deck]
+    const newDeck = [...deck, ...deck, ...deck, ...deck]
+    const id = 0
     for(let i = 0; i < newDeck.length; i++){
+      newDeck[i].key = i;
       const j = Math.floor(Math.random() * newDeck.length)
       const temp = newDeck[i]
       newDeck[i] = newDeck[j]
@@ -71,6 +79,8 @@ class App extends React.Component {
       dealerTurn: false,
       playerCards: [],
       dealerCards: [],
+      dealerCardsOnTurn: [],
+      showDealerCard: false,
       handOver: false
     })
     this.gameStart()
@@ -85,13 +95,18 @@ class App extends React.Component {
      }
 //changes from player to dealer functions
   changeSides = () => {
-    this.setState({dealerTurn: !this.state.dealerTurn})
+    this.setState({
+          dealerTurn: !this.state.dealerTurn,
+          showDealerCard: true
+        })
   }
 //deals cards to the dealer 
   handleDealer= () => {
         const newCard = this.state.cards.shift()
+        const newHand = [...this.state.dealerCards, newCard]
            this.setState({
-                dealerCards: this.state.dealerCards.concat(newCard)
+                dealerCards: newHand,
+                dealerCardsOnTurn: newHand
             }) 
   }
 
@@ -101,25 +116,43 @@ class App extends React.Component {
       handOver: true,
       dealerTurn: false
     })
-    console.log('compare hands')
   }
   nextHand = () =>{
     this.setState({handOver: false})
   }
+
+  handlePlayerHealth = () =>{
+    this.setState({playerHealth: this.state.playerHealth - 25})
+  }
+
+  handleDealerHealth = () =>{
+    this.setState({dealerHealth: this.state.dealerHealth - 25})
+  }
+
   render(){
     const visualDeck = this.state.cards.map(cards => <Card key={cards.id} card={cards.face} />)
     return (
       <div className="App">
-        <div className="dealerBoard">
+        <div className="dealer-container">
+          <div className="placeholder">
+            <DealerContainer
+              dealerHealth = {this.state.dealerHealth} 
+            />
+          </div>
                   <Dealer 
                     dealerTurn = {this.state.dealerTurn}
                     dealerCards={this.state.dealerCards}
+                    dealerCardsOnTurn = {this.state.dealerCardsOnTurn}
                     dealerValue = {this.state.dealerValue}
                     handleDealer={this.handleDealer}
                     cards = {this.state.cards}
                     handOver = {this.handOver}
+                    showDealerCard={this.state.showDealerCard}
                   />
-                </div>
+          <div className="placeholder"></div>
+            {/* {visualDeck} */}
+          </div>
+        <div className="centerBoard"> 
                 <ScoreBoard 
                   playerCards = {this.state.playerCards}
                   dealerCards = {this.state.dealerCards}
@@ -127,10 +160,11 @@ class App extends React.Component {
                   nextHand = {this.nextHand}
                   deckShuffle= {() => this.deckShuffle(deck)}
                   deck = {this.state.cards}
+                  handlePlayerHealth = {this.handlePlayerHealth}
+                  handleDealerHealth = {this.handleDealerHealth}
                   />
-                {visualDeck}
-                <div className="centerBoard"> </div>
-                <br />
+        </div>
+        <div className="player-container">
                 <Player 
                   playerValue={this.state.playerValue}
                   deckShuffle={() => this.deckShuffle(deck)} 
@@ -141,7 +175,15 @@ class App extends React.Component {
                   gameStart = {this.gameStart}
                   didGameStart = {this.state.gameStart}
                   cards = {this.state.cards}
+                  dealerTurn = {this.state.dealerTurn}
+                  showDealerCard = {this.state.showDealerCard}
                 />
+          <div className="placeholder">
+            <PlayerContainer 
+              playerHealth = {this.state.playerHealth}
+            />
+          </div>
+        </div>
       </div>
     );
   }

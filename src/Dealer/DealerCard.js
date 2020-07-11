@@ -1,21 +1,14 @@
 import React from "react"
 
-export default function DealerCard(props){
-	const myStyle = {
-		position: "relative",
-		fontSize: "24px",
-		width: "100px",
-		height: "200px",
-		border: "1px solid white",
-		borderRadius: "15px",
-		float: "left",
-		backgroundColor: "black",
-		color: "white",
-		marginLeft: "-50px"
-	}
+class DealerCard extends React.Component{
+
+	render(props){
 		return (
-			<div style= {myStyle} className="Card">
-				<p className="top">{props.card}</p>
-				<p className="bottom">{props.card}</p>
+			<div className="myStyle">
+				<p className="top">{this.props.card}</p>
+				<p className="bottom">{this.props.card}</p>
 			</div>)
-}
+}}
+
+
+export default DealerCard

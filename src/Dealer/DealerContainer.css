@@ -1,0 +1,27 @@
+.dealer-image-container{
+    height: 100%;
+    width: 100%;
+    padding: 1em;
+}
+
+.dealer-image{
+    background-color: gray;
+    width: 80px;
+    height: 150px;
+    border-radius: 25px;
+    box-shadow: 3px 5px 5px 3px black;
+}
+.dealer-health-container{
+    margin-top: 5px;
+    width: 100px;
+}
+.health{
+    display: inline-block;
+    background-color: yellow;
+    border: none;
+    margin: 0;
+    margin-top: 5px;
+    height: 5px;
+    width: 1px;
+    box-shadow: 2px 2px 2px black;
+}

@@ -1,11 +1,16 @@
 .App {
   text-align: center;
-  padding-left: 60px;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  height: 100%;
+  padding: 3em;
 }
 .score{
+  position: absolute;
+  bottom: 0;
+  right: 0;
   border: 1px solid black;
-  float: right;
-  margin: 0;
+  margin: 10px;
 }
 .dealerScore{
   position: absolute;
@@ -42,20 +47,28 @@
 body{
   background-image: url("https://us.123rf.com/450wm/malekas/malekas1405/malekas140500008/28502181-green-felt-texture.jpg?ver=6");
 }
+.dealer-container{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
 .dealerBoard{
-  height: 200px;
+  height: 125px;
   width: 100%;
   margin: 25px;
 }
 .centerBoard{
-  height: 300px;
+  height: 200px;
   width: 100%;
 }
-.player{
-  position: sticky;
-  bottom: 0;
+.player-container{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.placeholder{
+  width: 100%;
 }
 .playerBoard{
+  display: inline;
   height: 200px;
   width: 100%;
   margin: 25px;
@@ -67,7 +80,12 @@ body{
   display: inline-block;
   margin: 0 20%;
 }
-
+.btn-container{
+  width: 100%;
+}
+.player-skill{
+  width: 100%;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -75,4 +93,73 @@ body{
   to {
     transform: rotate(360deg);
   }
+}
+
+.newGame-btn{
+  width: 4em;
+  height: 4em;
+  border-radius: 50px;
+  border: 8px dashed white;
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  box-shadow: 3px 3px 3px black;
+}
+.newHand-btn{
+  margin: 1em;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 50px;
+  border: 8px dashed white;
+  background-color: green;
+  color: white;
+  font-weight: 700;
+  box-shadow: 3px 3px 3px black;
+}
+.deal-btn{
+  margin: 1em;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 50px;
+  border: 8px dashed white;
+  background-color: red;
+  color: white;
+  font-weight: 700;
+  box-shadow: 3px 3px 3px black;
+}
+.stay-btn{
+  margin: 1em;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 50px;
+  border: 8px dashed white;
+  background-color: blue;
+  color: white;
+  font-weight: 700;
+  box-shadow: 3px 3px 3px black;
+}
+
+.myStyle{
+	display: inline-block;
+	position: relative;
+	font-size: 24px;
+	width: 80px;
+	height: 150px;
+	border: 1px solid white;
+	border-radius: 15px;
+	background-color: black;
+	color: white;
+	margin-left: -40px;
+}
+.faceDownStyle{
+  display: inline-block;
+	position: relative;
+	font-size: 24px;
+	width: 80px;
+	height: 150px;
+	border: 1px solid white;
+	border-radius: 15px;
+	background-color: black;
+	color: black;
+	margin-left: -40px;
 }
