@@ -99,10 +99,11 @@ body{
   width: 4em;
   height: 4em;
   border-radius: 50px;
-  border: 8px dashed white;
+  border: 2px dashed white;
   background-color: black;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: .7em;
   box-shadow: 3px 3px 3px black;
 }
 .newHand-btn{
@@ -110,10 +111,11 @@ body{
   width: 3.5em;
   height: 3.5em;
   border-radius: 50px;
-  border: 8px dashed white;
+  border: 2px dashed white;
   background-color: green;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: .7em;
   box-shadow: 3px 3px 3px black;
 }
 .deal-btn{
@@ -121,10 +123,11 @@ body{
   width: 3.5em;
   height: 3.5em;
   border-radius: 50px;
-  border: 8px dashed white;
+  border: 2px dashed white;
   background-color: red;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: .7em;
   box-shadow: 3px 3px 3px black;
 }
 .stay-btn{
@@ -132,10 +135,11 @@ body{
   width: 3.5em;
   height: 3.5em;
   border-radius: 50px;
-  border: 8px dashed white;
+  border: 2px dashed white;
   background-color: blue;
   color: white;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: .7em;
   box-shadow: 3px 3px 3px black;
 }
 
