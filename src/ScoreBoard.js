@@ -7,9 +7,7 @@ class ScoreBoard extends React.Component{
 	}
 
 	compare = (dealerScore, playerScore) =>{
-		console.log(playerScore)
-		console.log(dealerScore)
-
+		
 		if (playerScore > dealerScore && playerScore < 22){
 			this.setState({playerScore: this.state.playerScore + 1})
 			this.props.handleDealerHealth()

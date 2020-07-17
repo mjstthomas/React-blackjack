@@ -8,13 +8,13 @@
     background-color: gray;
     width: 50px;
     height: 90px;
-    margin-top: 5px;
+    margin-top: 15px;
     border-radius: 15px;
     box-shadow: 3px 5px 5px 3px black;
 }
 
 .player-health-container{
-    margin-top: 5px;
+    margin-bottom: 25px;
     width: 100px;
     
 }
@@ -23,6 +23,7 @@
     background-color: yellow;
     border: none;
     margin: 0;
+    margin-bottom: 20px;
     height: 5px;
     width: 1px;
     float: left;
