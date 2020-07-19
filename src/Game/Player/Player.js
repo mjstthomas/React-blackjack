@@ -9,6 +9,7 @@ state = {
 	playerCards: this.props.playerCards
 }
 
+
 	render(props){
 	const playerhand = this.props.playerCards.map(cards => <PlayerCard key={cards.id} card={cards.face} />)
 	const playerValue = this.props.playerCards.reduce((acc, obj) => {
@@ -17,6 +18,7 @@ state = {
 		  }
 		  return acc + obj.value;
 		}, 0)
+
 		return (
 			<div className="player">
 				

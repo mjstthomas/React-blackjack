@@ -9,6 +9,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <link type="text/css" rel="stylesheets" href="https://gstatic.com/firebasejs/ui/4.6.0/firebase-ui-auth.css" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -27,6 +28,30 @@
     <title>React App</title>
   </head>
   <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCKQrfuJ0qBHJeqa5ol0XYm5oD9tIif_vM",
+    authDomain: "battle-blackjack.firebaseapp.com",
+    databaseURL: "https://battle-blackjack.firebaseio.com",
+    projectId: "battle-blackjack",
+    storageBucket: "battle-blackjack.appspot.com",
+    messagingSenderId: "59266404022",
+    appId: "1:59266404022:web:61703ad40571f8f8922017",
+    measurementId: "G-BKJZ6W5H1Q"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
