@@ -132,7 +132,7 @@ class Game extends React.Component {
       dealerTurn: false
     })
   }
-  
+
   nextHand = () =>{
     this.setState({
       handOver: false,
@@ -142,10 +142,16 @@ class Game extends React.Component {
 
   handlePlayerHealth = () =>{
     this.setState({playerHealth: this.state.playerHealth - 10})
+    if (this.state.dealerHealth < 1){
+      this.props.history.push('/Win')
+    }
   }
 
   handleDealerHealth = () =>{
     this.setState({dealerHealth: this.state.dealerHealth - 10})
+    if (this.state.playerHealth < 1){
+      this.props.history.push('/Lose')
+    }
   }
 
   render(){

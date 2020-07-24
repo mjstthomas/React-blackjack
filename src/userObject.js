@@ -24,7 +24,7 @@ const users = [{
 },
 {
     user_name: "Player1",
-    user_email: "Player1@gmail.com",
+    user_email: "player1@gmail.com",
     password: "password",
     wins: 72,
     total_games: 86,
