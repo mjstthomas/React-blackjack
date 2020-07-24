@@ -27,7 +27,7 @@ state = {
 				<div className="player-game-container">
 					<Hand 
 						playerhand={playerhand} 
-						playerCards = {this.state.playerCards}
+						playerCards = {this.props.playerCards}
 					/>
 					<Choices 
 						deckShuffle={this.props.deckShuffle}  

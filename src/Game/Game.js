@@ -12,6 +12,7 @@ class Game extends React.Component {
   state = {
     cards: [],
     playerCards: [],
+    playerBust: false,
     playerHealth: 100,
     dealerCards: [],
     dealerCardsOnTurn: [],
@@ -25,12 +26,15 @@ class Game extends React.Component {
   newGameFunction = () =>{
     this.setState({
       cards: [],
-      playerCards: [],
-      dealerCards: [],
-      dealerCardsOnTurn: [],
-      dealerTurn: false,
-      gameStart: false,
-      handOver: false
+    playerCards: [],
+    playerHealth: 100,
+    dealerCards: [],
+    dealerCardsOnTurn: [],
+    showDealerCard: false,
+    dealerHealth: 100,
+    dealerTurn: false,
+    gameStart: false,
+    handOver: false
     })
   }
   //Player Functions
@@ -86,12 +90,23 @@ class Game extends React.Component {
   }
 //this function deals cards to the player
   handleDeal = () =>{
-  const newCard = this.state.cards.shift()
-  const newHand = [...this.state.playerCards, newCard]
-          this.setState({
-          playerCards: newHand
-        })
-     }
+  const newCard = this.state.cards.shift();
+  const newHand = [...this.state.playerCards, newCard];
+    this.setState({playerCards: newHand});
+
+    const playerValue = newHand.reduce((acc, obj) => {
+		  if (obj.face === "A"){
+		    return acc + 11 > 21 ? acc + 1 : acc + 11;
+		  }
+		  return acc + obj.value;
+    }, 0)
+    if (playerValue === 21){
+      this.changeSides()
+    } else if (playerValue > 21){
+      this.setState({playerBust: true})
+      this.changeSides()
+    }
+  }
 //changes from player to dealer functions
   changeSides = () => {
     this.setState({
@@ -99,6 +114,7 @@ class Game extends React.Component {
           showDealerCard: true
         })
   }
+
 //deals cards to the dealer 
   handleDealer= () => {
         const newCard = this.state.cards.shift()
@@ -116,16 +132,20 @@ class Game extends React.Component {
       dealerTurn: false
     })
   }
+  
   nextHand = () =>{
-    this.setState({handOver: false})
+    this.setState({
+      handOver: false,
+      playerBust: false
+    })
   }
 
   handlePlayerHealth = () =>{
-    this.setState({playerHealth: this.state.playerHealth - 25})
+    this.setState({playerHealth: this.state.playerHealth - 10})
   }
 
   handleDealerHealth = () =>{
-    this.setState({dealerHealth: this.state.dealerHealth - 25})
+    this.setState({dealerHealth: this.state.dealerHealth - 10})
   }
 
   render(){
@@ -139,6 +159,7 @@ class Game extends React.Component {
             />
           </div>
                   <Dealer 
+                    playerBust = {this.state.playerBust}
                     dealerTurn = {this.state.dealerTurn}
                     dealerCards={this.state.dealerCards}
                     dealerCardsOnTurn = {this.state.dealerCardsOnTurn}
@@ -153,6 +174,7 @@ class Game extends React.Component {
           </div>
         <div className="centerBoard"> 
                 <ScoreBoard 
+                  playerBust = {this.state.playerBust}
                   playerCards = {this.state.playerCards}
                   dealerCards = {this.state.dealerCards}
                   handOver = {this.state.handOver}
@@ -165,7 +187,6 @@ class Game extends React.Component {
         </div>
         <div className="player-container">
                 <Player 
-                  playerValue={this.state.playerValue}
                   deckShuffle={() => this.deckShuffle(deck)} 
                   handleDeal={this.handleDeal}
                   playerCards = {this.state.playerCards}

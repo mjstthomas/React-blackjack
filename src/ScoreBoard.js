@@ -8,11 +8,7 @@ class ScoreBoard extends React.Component{
 
 	compare = (dealerScore, playerScore) =>{
 		
-		if (this.props.playerBust){
-			this.setState({dealerScore: this.state.dealerScore + 1})
-			this.props.handlePlayerHealth()
-			this.props.nextHand()
-		} else if (playerScore > dealerScore && playerScore < 22){
+		if (playerScore > dealerScore && playerScore < 22){
 			this.setState({playerScore: this.state.playerScore + 1})
 			this.props.handleDealerHealth()
 			this.props.nextHand()
@@ -38,16 +34,13 @@ class ScoreBoard extends React.Component{
 		    return acc + 11 < 18 ? acc + 1 : acc + 11;
 		  }
 		  return acc + obj.value;
-		}, 0);
-
-		let playerValue = this.props.playerCards.reduce((acc, obj) => {
+		}, 0)
+		const playerValue = this.props.playerCards.reduce((acc, obj) => {
 		  if (obj.face === "A"){
 		    return acc + 11 > 21 ? acc + 1 : acc + 11;
 		  }
 		  return acc + obj.value;
 		}, 0)
-	
-
 		const scoreBoard = () => this.props.handOver ? this.compare(dealerValue, playerValue) : null
 		scoreBoard()
 		return (

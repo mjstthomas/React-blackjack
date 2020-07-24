@@ -31,7 +31,7 @@ deal = (dealerValue) => dealerValue < 17 ? this.props.handleDealer() : this.prop
 						card={cards.face}
 					/>
 		})
-		const turn = () => this.props.dealerTurn ? this.deal(dealerValue) : null
+		const turn = () => this.props.playerBust === false ? (this.props.dealerTurn ? this.deal(dealerValue) : null) : this.props.handOver()
 		turn()
 	return (
 		<div className="dealer">

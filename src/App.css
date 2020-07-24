@@ -91,7 +91,6 @@ nav{
   width: 100%;
 }
 .playerBoard{
-  display: inline;
   height: 200px;
   width: 100%;
   margin: 25px;
@@ -200,4 +199,19 @@ img{
   height: 30px;
   width: 30px;
   border-radius: 25px;
+}
+.email-container{
+  width: 200px;
+}
+.password-container{
+  width: 200px;
+}
+
+.instruction-container{
+  width: 50%;
+  margin: auto;
+  background-color: #61dafb;
+  border: 2px solid black;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px black;
 }
