@@ -9,6 +9,8 @@ import users from './userObject'
 import Win from './Win'
 import Lose from './Lose'
 import Profile from './Profile'
+import LogOff from './LogOff'
+import LeaderBoard from './LeaderBoard'
 import './App.css'
 import AppContext from './AppContext'
 import { v4 as uuidv4 } from 'uuid'
@@ -74,14 +76,14 @@ class App extends React.Component{
             handleSignup: this.handleSignup,
             handleDelete: this.handleDelete,
             handleWin: this.handleWin,
-            handleNewGame: this.handleNewGame
+            handleNewGame: this.handleNewGame,
+            handleLogoff: this.handleLogoff
         }
         return (
             <AppContext.Provider value={context}>
                 <div className="App">
                     <Header 
                         user={this.state.user} 
-                        handleLogoff={this.handleLogoff}
                     />
                     <div className="game-container">
                         <Route path='/' exact component={LandingPage} />
@@ -91,6 +93,8 @@ class App extends React.Component{
                         <Route path='/Win' exact component={Win} />
                         <Route path='/Lose' exact component={Lose} />
                         <Route path='/Profile' exact component={Profile} />
+                        <Route path='/LogOff' exact component={LogOff} />
+                        <Route path='/LeaderBoard' exact component={LeaderBoard} />
                     </div>
                 </div>
             </AppContext.Provider>

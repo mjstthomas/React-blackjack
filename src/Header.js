@@ -18,7 +18,10 @@ class Header extends React.Component {
                     <li><Link to='/Login'>Log-In</Link></li>
                     <li><Link to='/signup'>Sign-Up</Link></li>
                 </ul>
-                : <button className="signout" onClick={this.handleLogoff}>Log off</button>}
+                : <ul className="options">
+                        <li><Link to='/LeaderBoard'>LeaderBoard</Link></li>
+                        <li><Link to='/LogOff'>Log off</Link></li>
+                    </ul>}
             </nav>
         )
     }
