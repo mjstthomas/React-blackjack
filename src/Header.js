@@ -11,11 +11,11 @@ class Header extends React.Component {
         return (
             <nav>
                 <div className="user-image-container">
-                    <Link to='/'>{this.props.user.user_name}</Link>
+                    <Link to='/Profile'>{this.props.user.user_name}</Link>
                 </div>
                 {!this.props.user.user_name
                 ? <ul className="options">
-                    <li><Link to='/login'>Log-In</Link></li>
+                    <li><Link to='/Login'>Log-In</Link></li>
                     <li><Link to='/signup'>Sign-Up</Link></li>
                 </ul>
                 : <button className="signout" onClick={this.handleLogoff}>Log off</button>}

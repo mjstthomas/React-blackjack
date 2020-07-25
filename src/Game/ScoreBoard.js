@@ -14,11 +14,11 @@ class ScoreBoard extends React.Component{
 			this.props.nextHand()
 		} else if (playerScore > dealerScore && playerScore < 22){
 			this.setState({playerScore: this.state.playerScore + 1})
-			this.props.handleDealerHealth()
+			this.props.handleDealerHealth(10)
 			this.props.nextHand()
 		} else if (dealerScore > 21 && playerScore < 22){
 			this.setState({playerScore: this.state.playerScore + 1})
-			this.props.handleDealerHealth()
+			this.props.handleDealerHealth(10)
 			this.props.nextHand()
 		} else if (dealerScore > playerScore && dealerScore < 22){
 			this.setState({dealerScore: this.state.dealerScore + 1})
@@ -33,14 +33,16 @@ class ScoreBoard extends React.Component{
 		}
 	}
 	render(){
-		const dealerValue = this.props.dealerCards.reduce((acc, obj) => {
+		const newDealerCards = [...this.props.dealerCards].sort((a, b)=> a.value - b.value)
+		const newPlayerCards = [...this.props.playerCards].sort((a, b)=> a.value - b.value)
+		const dealerValue = newDealerCards.reduce((acc, obj) => {
 		  if (obj.face === "A"){
 		    return acc + 11 < 18 ? acc + 1 : acc + 11;
 		  }
 		  return acc + obj.value;
 		}, 0);
 
-		let playerValue = this.props.playerCards.reduce((acc, obj) => {
+		let playerValue = newPlayerCards.reduce((acc, obj) => {
 		  if (obj.face === "A"){
 		    return acc + 11 > 21 ? acc + 1 : acc + 11;
 		  }
@@ -55,6 +57,7 @@ class ScoreBoard extends React.Component{
 				<ul className="Board">
 					<li>player:<span className="wins">{this.state.playerScore}</span></li>
 					<li>dealer:<span className="wins">{this.state.dealerScore}</span></li>
+					{this.props.strategyMessage && <li className="strategy-message">{this.props.strategyMessage}</li>}
 				</ul>
 			</div>
 

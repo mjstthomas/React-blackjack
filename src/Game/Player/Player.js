@@ -1,8 +1,8 @@
-import React from "react"
-import Hand from './Hand'
-import Value from './Value'
-import Choices from './Choices'
-import PlayerCard from './PlayerCards'
+import React from "react";
+import Hand from './Hand';
+import Value from './Value';
+import Choices from './Choices';
+import PlayerCard from './PlayerCards';
 
 class Player extends React.Component{
 state = {
@@ -11,13 +11,14 @@ state = {
 
 
 	render(props){
-	const playerhand = this.props.playerCards.map(cards => <PlayerCard key={cards.id} card={cards.face} />)
-	const playerValue = this.props.playerCards.reduce((acc, obj) => {
+		const newPlayerCards = [...this.props.playerCards].sort((a, b)=> a.value - b.value);
+		const playerhand = this.props.playerCards.map(cards => <PlayerCard key={cards.key} card={cards.face} />);
+		const playerValue = newPlayerCards.reduce((acc, obj) => {
 		  if (obj.face === "A"){
 		    return acc + 11 > 21 ? acc + 1 : acc + 11;
 		  }
 		  return acc + obj.value;
-		}, 0)
+		}, 0);
 
 		return (
 			<div className="player">
@@ -38,6 +39,7 @@ state = {
 						gameStart = {this.props.didGameStart}
 						dealerTurn = {this.props.dealerTurn}
 						showDealerCard = {this.props.showDealerCard}
+						handleStrategy = {this.props.handleStrategy}
 					/>
 				</div>
 			</div>

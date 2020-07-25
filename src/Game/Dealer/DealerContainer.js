@@ -12,9 +12,9 @@ class DealerContainer extends React.Component {
     }
 
     render(){
+        let i = 0;
         const healthArray = this.dealerHealth(this.props.dealerHealth)
-        const healthBar = healthArray.map(item => <div className="health"></div>)
-        console.log(healthArray.length)
+        const healthBar = healthArray.map(item => <div key={i++} className="health"></div>)
         return (
             <div className="dealer-image-container">
                 <div className="dealer-health-container">

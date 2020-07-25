@@ -215,3 +215,42 @@ img{
   border-radius: 25px;
   box-shadow: 5px 5px 5px black;
 }
+.signup-form-container{
+  width: 80%;
+  height: 20em;
+  margin: auto;
+  padding: 2em;
+  background-color: #61dafb;
+  border: 2px solid black;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.profile-container{
+  width: 80%;
+  height: 20em;
+  margin: auto;
+  padding: 2em;
+  background-color: #61dafb;
+  border: 2px solid black;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px black;
+}
+
+.delete-container{
+  position: relative;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+}
+
+.strategy-message{
+  width: 40%;
+  height: 60%;
+  margin: auto;
+  padding: 2em;
+  background-color: #61dafb;
+  border: 2px solid black;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px black;
+}

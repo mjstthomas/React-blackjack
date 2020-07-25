@@ -6,10 +6,15 @@ import Dealer from './Dealer/Dealer'
 import ScoreBoard from './ScoreBoard'
 import PlayerContainer from './Player/PlayerContainer'
 import DealerContainer from './Dealer/DealerContainer'
+import strategy from '../strategy'
+import AppContext from '../AppContext'
+import {v4 as uuidv4 } from 'uuid'
 
 
 class Game extends React.Component {
+  static contextType = AppContext
   state = {
+    strategy: strategy,
     cards: [],
     playerCards: [],
     playerBust: false,
@@ -20,13 +25,16 @@ class Game extends React.Component {
     dealerHealth: 100,
     dealerTurn: false,
     gameStart: false,
-    handOver: false
+    handOver: false,
+    strategyMessage: "",
   }
 
   newGameFunction = () =>{
     this.setState({
-      cards: [],
+      strategy: strategy,
+    cards: [],
     playerCards: [],
+    playerBust: false,
     playerHealth: 100,
     dealerCards: [],
     dealerCardsOnTurn: [],
@@ -60,10 +68,10 @@ class Game extends React.Component {
   //this function takes the deck array and shuffles each card object randomly
 
   deckShuffle = () => {
+    this.context.handleNewGame()
     const newDeck = [...deck, ...deck, ...deck, ...deck]
-    const id = 0
     for(let i = 0; i < newDeck.length; i++){
-      newDeck[i].key = i;
+      newDeck[i].key = uuidv4();
       const j = Math.floor(Math.random() * newDeck.length)
       const temp = newDeck[i]
       newDeck[i] = newDeck[j]
@@ -93,8 +101,8 @@ class Game extends React.Component {
   const newCard = this.state.cards.shift();
   const newHand = [...this.state.playerCards, newCard];
     this.setState({playerCards: newHand});
-
-    const playerValue = newHand.reduce((acc, obj) => {
+    const newerHand = [...newHand].sort((a, b) => a.value - b.value)
+    const playerValue = newerHand.reduce((acc, obj) => {
 		  if (obj.face === "A"){
 		    return acc + 11 > 21 ? acc + 1 : acc + 11;
 		  }
@@ -142,20 +150,38 @@ class Game extends React.Component {
 
   handlePlayerHealth = () =>{
     this.setState({playerHealth: this.state.playerHealth - 10})
-    if (this.state.dealerHealth < 1){
-      this.props.history.push('/Win')
-    }
-  }
-
-  handleDealerHealth = () =>{
-    this.setState({dealerHealth: this.state.dealerHealth - 10})
     if (this.state.playerHealth < 1){
       this.props.history.push('/Lose')
     }
   }
 
+  handleDealerHealth = (n) =>{
+    this.setState({dealerHealth: this.state.dealerHealth - n})
+    if (this.state.dealerHealth <= n){
+      this.context.handleWin()
+      this.props.history.push('/Win')
+    }
+  }
+//implementing how to show strategy
+handleStrategy = (playerValue, playerChoice) =>{
+    const playerOptions = this.state.strategy.find(item => item.id === playerValue)
+    if (playerChoice === playerOptions[this.state.dealerCards[1].face]){
+      this.setState({strategyMessage: 'You were correct'})
+      this.handleDealerHealth(5)
+      setTimeout(()=>{
+        this.setState({strategyMessage: ""})
+      }, 5000)
+    } else if (playerChoice !== playerOptions[this.state.dealerCards[1].face]){
+      this.setState({strategyMessage: 'You were incorrect'})
+      setTimeout(()=>{
+        this.setState({strategyMessage: ""})
+      }, 5000)
+    }
+
+}
+
   render(){
-    const visualDeck = this.state.cards.map(cards => <Card key={cards.id} card={cards.face} />)
+    const visualDeck = this.state.cards.map(cards => <Card key={cards.key} card={cards.face} />)
     return (
       <div className="Game">
         <div className="dealer-container">
@@ -189,6 +215,7 @@ class Game extends React.Component {
                   deck = {this.state.cards}
                   handlePlayerHealth = {this.handlePlayerHealth}
                   handleDealerHealth = {this.handleDealerHealth}
+                  strategyMessage = {this.state.strategyMessage}
                   />
         </div>
         <div className="player-container">
@@ -203,6 +230,7 @@ class Game extends React.Component {
                   cards = {this.state.cards}
                   dealerTurn = {this.state.dealerTurn}
                   showDealerCard = {this.state.showDealerCard}
+                  handleStrategy = {this.handleStrategy}
                 />
           <div className="placeholder">
             <PlayerContainer 
