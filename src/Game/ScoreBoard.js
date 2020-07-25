@@ -54,11 +54,9 @@ class ScoreBoard extends React.Component{
 		scoreBoard()
 		return (
 			<div className="scoreBoard">
-				<ul className="Board">
-					<li>player:<span className="wins">{this.state.playerScore}</span></li>
-					<li>dealer:<span className="wins">{this.state.dealerScore}</span></li>
-					{this.props.strategyMessage && <li className="strategy-message">{this.props.strategyMessage}</li>}
-				</ul>
+				<div className="Board">
+					{this.props.strategyMessage && <h3 className="strategy-message">{this.props.strategyMessage}</h3>}
+				</div>
 			</div>
 
 				)

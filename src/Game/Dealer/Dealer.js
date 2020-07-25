@@ -39,7 +39,6 @@ deal = (dealerValue) => dealerValue < 17 ? this.props.handleDealer() : this.prop
 				dealerCards={this.props.dealerCards} 
 				dealerTurn={this.props.dealerTurn} 
 			/>
-			<Value dealerValue ={dealerValue} />
 		</div>
 	)}
 }

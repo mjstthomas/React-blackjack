@@ -22,8 +22,6 @@ state = {
 
 		return (
 			<div className="player">
-				
-				<Value playerValue = {playerValue}  />
 
 				<div className="player-game-container">
 					<Hand 
