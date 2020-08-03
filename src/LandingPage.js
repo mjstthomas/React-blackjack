@@ -1,18 +1,32 @@
 import React from 'react'
+import firebase from 'firebase';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+
+// Configure Firebase.
+const config = {
+    apiKey: 'AIzaSyCKQrfuJ0qBHJeqa5ol0XYm5oD9tIif_vM',
+    authDomain: 'battle-blackjack.firebaseapp.com',
+    // ...
+  };
+  firebase.initializeApp(config);
+  
+  // Configure FirebaseUI.
+  const uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'popup',
+    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+    signInSuccessUrl: '/Game',
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.GithubAuthProvider.PROVIDER_ID,
+      firebase.auth.TwitterAuthProvider.PROVIDER_ID
+    ]
+  };
 
 export default function LandingPage(){
     return (
-        <div>
-            <div className="instruction-container">
-                <h1>Welcome to Battle BlackJack!</h1>
-                <p>This game was created to give you a fun way to learn the strategy of blackjack</p>
-                <p>It is you vs the dealer, first one to empty the other's health wins</p>
-                <p>Take extra points for using the right strategy</p>
-                <br/>
-                <p>demo sign in is</p>
-                <p>email: player1@gmail.com</p>
-                <p>password: password</p>
-            </div>
-        </div>
+        <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
     )
 }

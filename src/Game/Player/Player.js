@@ -12,7 +12,7 @@ state = {
 
 	render(props){
 		const newPlayerCards = [...this.props.playerCards].sort((a, b)=> a.value - b.value);
-		const playerhand = this.props.playerCards.map(cards => <PlayerCard key={cards.key} card={cards.face} />);
+		const playerhand = this.props.playerCards.map(cards => <PlayerCard key={cards.id} card={cards.face} />);
 		const playerValue = newPlayerCards.reduce((acc, obj) => {
 		  if (obj.face === "A"){
 		    return acc + 11 > 21 ? acc + 1 : acc + 11;

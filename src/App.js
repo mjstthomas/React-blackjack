@@ -14,6 +14,9 @@ import LeaderBoard from './LeaderBoard'
 import './App.css'
 import AppContext from './AppContext'
 import { v4 as uuidv4 } from 'uuid'
+import * as firebase from 'firebase';
+import config from './config'
+import 'firebase/firestore';
 
 
 class App extends React.Component{
@@ -23,20 +26,53 @@ class App extends React.Component{
         signedIn: false,
         signInError: ""
     }
-    
-    handleSignIn = (user)=>{
-        const {email, password} = user
-        const newUser = this.state.users.filter(item => item.user_email == email && item.password == password)
 
-        if(newUser.length < 1){
-            this.setState({signInError: "user not found"})
-        } else {
-            this.setState({
-                user: newUser[0],
-                signInError: ""
-            })
-        }
+    handleSignIn = (user)=>{
+        
+        this.setState({
+            user: user,
+            signedIn: true,
+            signInError: ""
+        })
+        console.log(this.state.user)
     }
+
+    
+    manageSignIn = () =>{
+        firebase.auth().onAuthStateChanged(user => {
+            const userProf = {};
+            user.providerData.forEach((profile) => {
+                const displayNameArray = profile.displayName.split(' ')
+                const displayName = displayNameArray[0]
+            
+              userProf.id = profile.uid
+              userProf.displayName = displayName
+              userProf.email= profile.email
+              userProf.image= profile.photoURL
+            });
+            fetch(`${config.API_ENDPOINT}/users/${userProf.email}:${userProf.id}:${userProf.displayName}`)
+                .then(response => response.json())
+                .then(result =>{
+                    console.log(result)
+                    if (!result.user_email){
+                        const newUser = {
+                            id: userProf.id,
+                            user_name: userProf.displayName,
+                            user_email: userProf.email,
+                            password: userProf.id,
+                            wins: 0,
+                            total_games: 0,
+                            correct: 0
+                        }
+                        this.setState(newUser)
+                    }
+                    this.handleSignIn(result)
+                })
+        })
+    }
+
+
+
 
     handleLogoff = () =>{
         this.setState({user: {}})
@@ -77,7 +113,8 @@ class App extends React.Component{
             handleDelete: this.handleDelete,
             handleWin: this.handleWin,
             handleNewGame: this.handleNewGame,
-            handleLogoff: this.handleLogoff
+            handleLogoff: this.handleLogoff,
+            manageSignIn: this.manageSignIn
         }
         return (
             <AppContext.Provider value={context}>

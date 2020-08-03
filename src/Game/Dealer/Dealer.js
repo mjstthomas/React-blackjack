@@ -5,7 +5,6 @@ import DealerCard from './DealerCard'
 import FaceDownDealerCard from './FaceDownDealerCard'
 
 class Dealer extends React.Component{
-
   
 deal = (dealerValue) => dealerValue < 17 ? this.props.handleDealer() : this.props.handOver()
 	render(props){
@@ -16,17 +15,17 @@ deal = (dealerValue) => dealerValue < 17 ? this.props.handleDealer() : this.prop
 		  }
 		  return acc + obj.value;
 		}, 0)
-		const dealerhandonturn = this.props.dealerCards.map(cards => <DealerCard key={cards.key} card={cards.face}/>)
+		const dealerhandonturn = this.props.dealerCards.map(cards => <DealerCard key={cards.id} card={cards.face}/>)
         const dealerhand = this.props.dealerCardsOnTurn.map(cards =>{
 			if (cards === this.props.dealerCards[0]){
 				return <FaceDownDealerCard 
-							key={cards.key} 
+							key={cards.id} 
 							card={cards.face} 
 							showDealerCard = {this.props.showDealerCard}
 						/>
 			} 
 			return <DealerCard 
-						key={cards.key} 
+						key={cards.id} 
 						card={cards.face}
 					/>
 		})

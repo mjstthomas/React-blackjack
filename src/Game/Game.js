@@ -71,7 +71,9 @@ class Game extends React.Component {
     this.context.handleNewGame()
     const newDeck = [...deck, ...deck, ...deck, ...deck]
     for(let i = 0; i < newDeck.length; i++){
-      newDeck[i].key = uuidv4();
+      newDeck[i].id = i;
+    }
+    for(let i = 0; i < newDeck.length; i++){
       const j = Math.floor(Math.random() * newDeck.length)
       const temp = newDeck[i]
       newDeck[i] = newDeck[j]
@@ -180,8 +182,11 @@ handleStrategy = (playerValue, playerChoice) =>{
 
 }
 
+componentDidMount(){
+  this.context.manageSignIn()
+}
   render(){
-    const visualDeck = this.state.cards.map(cards => <Card key={cards.key} card={cards.face} />)
+    const visualDeck = this.state.cards.map(cards => <Card key={cards.id} card={cards.face} />)
     return (
       <div className="Game">
         <div className="dealer-container">
