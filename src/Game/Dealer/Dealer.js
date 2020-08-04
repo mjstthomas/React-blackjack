@@ -1,6 +1,5 @@
 import React from "react"
 import Hand from './Hand'
-import Value from './Value'
 import DealerCard from './DealerCard'
 import FaceDownDealerCard from './FaceDownDealerCard'
 

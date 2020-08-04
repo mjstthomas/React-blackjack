@@ -12,7 +12,6 @@ class Choices extends React.Component{
 		this.props.handleStrategy(this.props.playerValue, "s");
 	}
 	render(props){
-		const playerSwitch = this.props.playerValue < 21 ? this.props.handleDeal : this.props.changeSides;
 		return(
 			<div className="btn-container">
 				{!this.props.gameStart && <button className="newGame-btn" type="button" onClick={this.props.deckShuffle}>New Game?</button>}

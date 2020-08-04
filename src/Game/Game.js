@@ -1,18 +1,19 @@
 import React from 'react';
-import deck from './deck'
-import Card from './Card'
-import Player from './Player/Player'
-import Dealer from './Dealer/Dealer'
-import ScoreBoard from './ScoreBoard'
-import PlayerContainer from './Player/PlayerContainer'
-import DealerContainer from './Dealer/DealerContainer'
-import strategy from '../strategy'
-import AppContext from '../AppContext'
-import {v4 as uuidv4 } from 'uuid'
+import deck from './deck';
+import Card from './Card';
+import Player from './Player/Player';
+import Dealer from './Dealer/Dealer';
+import ScoreBoard from './ScoreBoard';
+import PlayerContainer from './Player/PlayerContainer';
+import DealerContainer from './Dealer/DealerContainer';
+import strategy from '../strategy';
+import AppContext from '../AppContext';
 
 
 class Game extends React.Component {
-  static contextType = AppContext
+
+  static contextType = AppContext;
+
   state = {
     strategy: strategy,
     cards: [],
@@ -27,7 +28,10 @@ class Game extends React.Component {
     gameStart: false,
     handOver: false,
     strategyMessage: "",
-  }
+  };
+
+
+
 
   newGameFunction = () =>{
     this.setState({
@@ -45,6 +49,9 @@ class Game extends React.Component {
     handOver: false
     })
   }
+
+
+
   //Player Functions
   //this function takes the shuffled deck and deals 2 cards to the player and dealer
   gameStart = () =>{
@@ -65,6 +72,9 @@ class Game extends React.Component {
       gameStart: true
     })
   }
+
+
+
   //this function takes the deck array and shuffles each card object randomly
 
   deckShuffle = () => {
@@ -84,8 +94,10 @@ class Game extends React.Component {
     })
     setTimeout(() => {
       this.gameStart()
-    }, 1000)
+    }, 1000);
   }
+
+
 
   newHand = () => {
     this.setState({
@@ -98,6 +110,9 @@ class Game extends React.Component {
     })
     this.gameStart()
   }
+
+
+
 //this function deals cards to the player
   handleDeal = () =>{
   const newCard = this.state.cards.shift();
@@ -117,6 +132,9 @@ class Game extends React.Component {
       this.changeSides()
     }
   }
+
+
+
 //changes from player to dealer functions
   changeSides = () => {
     this.setState({
@@ -124,6 +142,8 @@ class Game extends React.Component {
           showDealerCard: true
         })
   }
+
+
 
 //deals cards to the dealer 
   handleDealer= () => {
@@ -135,6 +155,8 @@ class Game extends React.Component {
             }) 
   }
 
+
+
   //compares both hands values and logs a winner
   handOver = () =>{
     this.setState({
@@ -143,12 +165,16 @@ class Game extends React.Component {
     })
   }
 
+
+
   nextHand = () =>{
     this.setState({
       handOver: false,
       playerBust: false
     })
   }
+
+
 
   handlePlayerHealth = () =>{
     this.setState({playerHealth: this.state.playerHealth - 10})
@@ -157,6 +183,8 @@ class Game extends React.Component {
     }
   }
 
+
+
   handleDealerHealth = (n) =>{
     this.setState({dealerHealth: this.state.dealerHealth - n})
     if (this.state.dealerHealth <= n){
@@ -164,6 +192,9 @@ class Game extends React.Component {
       this.props.history.push('/Win')
     }
   }
+
+
+
 //implementing how to show strategy
 handleStrategy = (playerValue, playerChoice) =>{
     const playerOptions = this.state.strategy.find(item => item.id === playerValue)
@@ -182,9 +213,13 @@ handleStrategy = (playerValue, playerChoice) =>{
 
 }
 
+
+
 componentDidMount(){
   this.context.manageSignIn()
 }
+
+
   render(){
     const visualDeck = this.state.cards.map(cards => <Card key={cards.id} card={cards.face} />)
     return (

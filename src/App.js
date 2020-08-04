@@ -34,7 +34,6 @@ class App extends React.Component{
             signedIn: true,
             signInError: ""
         })
-        console.log(this.state.user)
     }
 
     
@@ -42,31 +41,29 @@ class App extends React.Component{
         firebase.auth().onAuthStateChanged(user => {
             const userProf = {};
             user.providerData.forEach((profile) => {
-                const displayNameArray = profile.displayName.split(' ')
-                const displayName = displayNameArray[0]
-            
               userProf.id = profile.uid
-              userProf.displayName = displayName
+              userProf.displayName = profile.displayName
               userProf.email= profile.email
               userProf.image= profile.photoURL
             });
             fetch(`${config.API_ENDPOINT}/users/${userProf.email}:${userProf.id}:${userProf.displayName}`)
                 .then(response => response.json())
                 .then(result =>{
-                    console.log(result)
                     if (!result.user_email){
+                        const displayNameArray = userProf.displayName.split(' ')
+                        const displayName = displayNameArray[0]
                         const newUser = {
                             id: userProf.id,
-                            user_name: userProf.displayName,
+                            user_name: displayName,
                             user_email: userProf.email,
                             password: userProf.id,
                             wins: 0,
                             total_games: 0,
                             correct: 0
                         }
-                        this.setState(newUser)
+                        return this.setState(newUser)
                     }
-                    this.handleSignIn(result)
+                    return this.handleSignIn(result)
                 })
         })
     }
@@ -89,21 +86,39 @@ class App extends React.Component{
     }
 
     handleDelete = (user) =>{
-        const newUsers = this.state.users.filter(users => users.id != user.id)
-        this.setState({users: newUsers})
-        console.log(newUsers)
+        fetch(`${config.API_ENDPOINT}/user`, {
+            method: 'DELETE',
+            body: JSON.stringify(this.state.user),
+            headers: {'content-type': 'application/json'}
+        })
     }
-    handleNewGame = () =>{
-        const newGame = {...this.state.user}
-        newGame.total_games++;
-        this.setState({user: newGame})
-    }
+
     handleWin = () =>{
         const winner = {...this.state.user}
         winner.wins++
         this.setState({user: winner})
-        console.log(winner)
+
+        fetch(`${config.API_ENDPOINT}/user`, {
+            method: 'PATCH',
+            body: JSON.stringify(winner),
+            headers: {'content-type': 'application/json'}
+        })
     }
+
+    //updates total games for user
+
+    handleNewGame = () =>{
+        const player = {...this.state.user}
+        player.total_games++
+        this.setState({user: player})
+        fetch(`${config.API_ENDPOINT}/user`, {
+            method: 'PATCH',
+            body: JSON.stringify(player),
+            headers: {'content-type': 'application/json'}
+        })
+    }
+
+
     render(){
         const context = {
             user: this.state.user,
@@ -114,7 +129,7 @@ class App extends React.Component{
             handleWin: this.handleWin,
             handleNewGame: this.handleNewGame,
             handleLogoff: this.handleLogoff,
-            manageSignIn: this.manageSignIn
+            manageSignIn: this.manageSignIn,
         }
         return (
             <AppContext.Provider value={context}>

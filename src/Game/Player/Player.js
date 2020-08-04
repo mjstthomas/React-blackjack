@@ -1,10 +1,10 @@
 import React from "react";
 import Hand from './Hand';
-import Value from './Value';
 import Choices from './Choices';
 import PlayerCard from './PlayerCards';
 
 class Player extends React.Component{
+
 state = {
 	playerCards: this.props.playerCards
 }

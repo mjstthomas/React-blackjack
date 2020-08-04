@@ -1,6 +1,5 @@
 import React from 'react'
 import AppContext from './AppContext'
-import { Link } from 'react-router-dom'
 
 
 class Profile extends React.Component{
@@ -11,8 +10,8 @@ class Profile extends React.Component{
         this.props.history.goBack();
     }
 
-    handleDelete = user =>{
-        this.context.handleDelete(user)
+    handleDelete = () =>{
+        this.context.handleDelete()
         this.props.history.push('/')
     }
 

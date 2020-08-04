@@ -15,8 +15,7 @@ class Header extends React.Component {
                 </div>
                 {!this.props.user.user_name
                 ? <ul className="options">
-                    <li><Link to='/Login'>Log-In</Link></li>
-                    <li><Link to='/signup'>Sign-Up</Link></li>
+                    <li><Link to='/LeaderBoard'>LeaderBoard</Link></li>
                 </ul>
                 : <ul className="options">
                         <li><Link to='/LeaderBoard'>LeaderBoard</Link></li>
