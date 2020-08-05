@@ -42,8 +42,10 @@ class App extends React.Component{
             const userProf = {};
             console.log(user)
             user.providerData.forEach((profile) => {
+                const displayNameArray = userProf.displayName.split(' ')
+                const displayName = displayNameArray[0]
               userProf.id = profile.uid
-              userProf.displayName = profile.displayName
+              userProf.displayName = displayName
               userProf.email= profile.email
               userProf.image= profile.photoURL
             });
@@ -51,11 +53,10 @@ class App extends React.Component{
                 .then(response => response.json())
                 .then(result =>{
                     if (!result.user_email){
-                        const displayNameArray = userProf.displayName.split(' ')
-                        const displayName = displayNameArray[0]
+                        
                         const newUser = {
                             id: userProf.id,
-                            user_name: displayName,
+                            user_name: userProf.displayName,
                             user_email: userProf.email,
                             password: userProf.id,
                             wins: 0,
