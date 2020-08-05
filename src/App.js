@@ -40,6 +40,7 @@ class App extends React.Component{
     manageSignIn = () =>{
         firebase.auth().onAuthStateChanged(user => {
             const userProf = {};
+            console.log(user)
             user.providerData.forEach((profile) => {
               userProf.id = profile.uid
               userProf.displayName = profile.displayName
