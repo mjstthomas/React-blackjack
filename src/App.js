@@ -42,7 +42,7 @@ class App extends React.Component{
             const userProf = {};
             console.log(user)
             user.providerData.forEach((profile) => {
-                const displayNameArray = profile.displayName.split(' ')
+                const displayNameArray = profile.displayName !== null ? profile.displayName.split(' ') : ['Player'];
                 const displayName = displayNameArray[0]
               userProf.id = profile.uid
               userProf.displayName = displayName
