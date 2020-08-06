@@ -1,6 +1,8 @@
 import React from 'react'
 import firebase from 'firebase';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import { Link } from 'react-router-dom'
+
 
 // Configure Firebase.
 const config = {
@@ -26,6 +28,9 @@ const config = {
 
 export default function LandingPage(){
     return (
+      <div>
         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
+        <p>First time? Try the demo instead.</p>
+      </div>
     )
 }

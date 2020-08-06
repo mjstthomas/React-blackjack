@@ -222,7 +222,7 @@ handleStrategy = (playerValue, playerChoice) =>{
 
 
 componentDidMount(){
-  this.context.demo === false ? this.context.manageSignIn(this.props.history) : console.log('hello');
+  this.context.demo === false ? this.context.manageSignIn() : console.log('hello');
 }
 
 
