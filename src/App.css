@@ -4,6 +4,11 @@
   grid-template-rows: repeat(3, auto);
   height: 100%;
 }
+.Game{
+  height: 750px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
 .score{
   position: absolute;
   bottom: 0;

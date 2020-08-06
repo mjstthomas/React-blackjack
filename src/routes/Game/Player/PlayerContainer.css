@@ -1,24 +1,38 @@
 .player-image-container{
     height: 100%;
     width: 100%;
-    padding: 1em;
 }
 
 .player-image{
     background-color: gray;
-    width: 50px;
-    height: 90px;
+    width: 70px;
+    height: 120px;
     float: right;
-    margin-top: 10px;
     border-radius: 15px;
     box-shadow: 3px 5px 5px 3px black;
+    padding: 0;
 }
+
+.player-image-powered{
+    background-color: gray;
+    width: 70px;
+    height: 120px;
+    float: right;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px 5px red;
+    padding: 0;
+}
+
 
 .player-health-container{
     margin-bottom: 25px;
     width: 100px;
-    
 }
+.player-health-container p{
+    text-align: right;
+    margin: 0;
+}
+
 .player-health{
     display: inline-block;
     background-color: yellow;

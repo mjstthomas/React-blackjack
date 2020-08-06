@@ -7,14 +7,15 @@ class Dealer extends React.Component{
   
 deal = (dealerValue) => dealerValue < 17 ? this.props.handleDealer() : this.props.handOver()
 	render(props){
-		const newDealerCards = [...this.props.dealerCards].sort((a, b)=> a.value - b.value)
+		const newDealerCards = [...this.props.dealerCards].sort((a, b)=> a.value - b.value);
+
 		const dealerValue = newDealerCards.reduce((acc, obj) => {
 		  if (obj.face === "A"){
 		    return acc + 11 > 21 ? acc + 1 : acc + 11;
 		  }
 		  return acc + obj.value;
-		}, 0)
-		const dealerhandonturn = this.props.dealerCards.map(cards => <DealerCard key={cards.id} card={cards.face}/>)
+		}, 0);
+		
         const dealerhand = this.props.dealerCardsOnTurn.map(cards =>{
 			if (cards === this.props.dealerCards[0]){
 				return <FaceDownDealerCard 
@@ -27,9 +28,12 @@ deal = (dealerValue) => dealerValue < 17 ? this.props.handleDealer() : this.prop
 						key={cards.id} 
 						card={cards.face}
 					/>
-		})
-		const turn = () => this.props.playerBust === false ? (this.props.dealerTurn ? this.deal(dealerValue) : null) : this.props.handOver()
-		turn()
+		});
+
+		const turn = () => this.props.playerBust === false ? (this.props.dealerTurn ? this.deal(dealerValue) : null) : this.props.handOver();
+		
+		turn();
+
 	return (
 		<div className="dealer">
 			<Hand 

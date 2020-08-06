@@ -1,16 +1,17 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import Game from './Game/Game'
+import Game from './routes/Game/Game'
 import Header from './Header'
-import Login from './Login'
-import Signup from './signup'
-import LandingPage from './LandingPage'
+import Login from './routes/Login'
+import Signup from './routes/signup'
+import LandingPage from './routes/LandingPage'
 import users from './userObject'
-import Win from './Win'
-import Lose from './Lose'
-import Profile from './Profile'
-import LogOff from './LogOff'
-import LeaderBoard from './LeaderBoard'
+import Win from './routes/Win'
+import Lose from './routes/Lose'
+import Profile from './routes/Profile'
+import LogOff from './routes/LogOff'
+import LeaderBoard from './routes/LeaderBoard'
+import Tutorial from './routes/Tutorial/Tutorial'
 import './App.css'
 import AppContext from './AppContext'
 import { v4 as uuidv4 } from 'uuid'
@@ -24,7 +25,8 @@ class App extends React.Component{
         users: users,
         user: {},
         signedIn: false,
-        signInError: ""
+        signInError: "",
+        demo: false
     }
 
     handleSignIn = (user)=>{
@@ -36,8 +38,11 @@ class App extends React.Component{
         })
     }
 
-    
-    manageSignIn = () =>{
+    handleDemo = () =>{
+        this.setState({demo: true})
+        console.log(this.state.demo)
+    }
+    manageSignIn = (obj) =>{
         firebase.auth().onAuthStateChanged(user => {
             const userProf = {};
             console.log(user)
@@ -63,7 +68,8 @@ class App extends React.Component{
                             total_games: 0,
                             correct: 0
                         }
-                        return this.setState(newUser)
+                        this.setState(newUser)
+                        obj.push('/Tutorial')
                     }
                     return this.handleSignIn(result)
                 })
@@ -132,12 +138,14 @@ class App extends React.Component{
             handleNewGame: this.handleNewGame,
             handleLogoff: this.handleLogoff,
             manageSignIn: this.manageSignIn,
+            demo: this.state.demo
         }
         return (
             <AppContext.Provider value={context}>
                 <div className="App">
                     <Header 
-                        user={this.state.user} 
+                        user={this.state.user}
+                        handleDemo={this.handleDemo}
                     />
                     <div className="game-container">
                         <Route path='/' exact component={LandingPage} />
@@ -149,6 +157,7 @@ class App extends React.Component{
                         <Route path='/Profile' exact component={Profile} />
                         <Route path='/LogOff' exact component={LogOff} />
                         <Route path='/LeaderBoard' exact component={LeaderBoard} />
+                        <Route path='/Tutorial' exact component={Tutorial} />
                     </div>
                 </div>
             </AppContext.Provider>

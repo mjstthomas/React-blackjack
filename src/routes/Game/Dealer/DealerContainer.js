@@ -1,5 +1,6 @@
 import React from 'react'
 import './DealerContainer.css'
+import images from '../../../images/images'
 
 class DealerContainer extends React.Component {
 
@@ -19,9 +20,9 @@ class DealerContainer extends React.Component {
             <div className="dealer-image-container">
                 <div className="dealer-health-container">
                     {healthBar}
+                    <p>{this.props.dealerHealth}/100</p>
                 </div>
-                <div className="dealer-image">
-                </div>
+                <img className='dealer-image' src={images.dealer} alt="dealer images" />
             </div>
         )
     }

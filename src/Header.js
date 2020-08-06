@@ -15,6 +15,7 @@ class Header extends React.Component {
                 </div>
                 {!this.props.user.user_name
                 ? <ul className="options">
+                    <li onClick={this.props.handleDemo}><Link to='/Tutorial'>Demo</Link></li>
                     <li><Link to='/LeaderBoard'>LeaderBoard</Link></li>
                 </ul>
                 : <ul className="options">

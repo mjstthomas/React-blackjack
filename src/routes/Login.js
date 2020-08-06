@@ -1,10 +1,6 @@
 import React from 'react';
-import AppContext from './AppContext'
-import firebase from 'firebase';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-
-
-  
+import AppContext from '../AppContext'
+ 
 
 class Login extends React.Component {
   static contextType = AppContext;

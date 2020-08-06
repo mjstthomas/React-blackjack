@@ -1,5 +1,5 @@
 import React from 'react'
-import AppContext from './AppContext'
+import AppContext from '../AppContext'
 
 class Signup extends React.Component{
     static contextType = AppContext;

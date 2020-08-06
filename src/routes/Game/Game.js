@@ -6,8 +6,8 @@ import Dealer from './Dealer/Dealer';
 import ScoreBoard from './ScoreBoard';
 import PlayerContainer from './Player/PlayerContainer';
 import DealerContainer from './Dealer/DealerContainer';
-import strategy from '../strategy';
-import AppContext from '../AppContext';
+import strategy from '../../strategy';
+import AppContext from '../../AppContext';
 
 
 class Game extends React.Component {
@@ -20,6 +20,7 @@ class Game extends React.Component {
     playerCards: [],
     playerBust: false,
     playerHealth: 100,
+    poweredUp: false,
     dealerCards: [],
     dealerCardsOnTurn: [],
     showDealerCard: false,
@@ -106,7 +107,8 @@ class Game extends React.Component {
       dealerCards: [],
       dealerCardsOnTurn: [],
       showDealerCard: false,
-      handOver: false
+      handOver: false,
+      poweredUp: false
     })
     this.gameStart()
   }
@@ -161,7 +163,7 @@ class Game extends React.Component {
   handOver = () =>{
     this.setState({
       handOver: true,
-      dealerTurn: false
+      dealerTurn: false,
     })
   }
 
@@ -170,27 +172,32 @@ class Game extends React.Component {
   nextHand = () =>{
     this.setState({
       handOver: false,
-      playerBust: false
+      playerBust: false,
     })
   }
 
 
 
   handlePlayerHealth = () =>{
-    this.setState({playerHealth: this.state.playerHealth - 10})
-    if (this.state.playerHealth < 1){
+    if (this.state.playerHealth < 10){
       this.props.history.push('/Lose')
     }
+    this.setState({playerHealth: this.state.playerHealth - 10, poweredUp: false})
   }
 
 
 
   handleDealerHealth = (n) =>{
-    this.setState({dealerHealth: this.state.dealerHealth - n})
     if (this.state.dealerHealth <= n){
       this.context.handleWin()
       this.props.history.push('/Win')
+    } else if (this.state.poweredUp){
+      const powered = n * 1.5;
+      this.setState({dealerHealth: this.state.dealerHealth - powered, poweredUp: false})
+    } else {
+      this.setState({dealerHealth: this.state.dealerHealth - n})
     }
+
   }
 
 
@@ -199,8 +206,7 @@ class Game extends React.Component {
 handleStrategy = (playerValue, playerChoice) =>{
     const playerOptions = this.state.strategy.find(item => item.id === playerValue)
     if (playerChoice === playerOptions[this.state.dealerCards[1].face]){
-      this.setState({strategyMessage: 'You were correct'})
-      this.handleDealerHealth(5)
+      this.setState({strategyMessage: 'You were correct', poweredUp: true})
       setTimeout(()=>{
         this.setState({strategyMessage: ""})
       }, 5000)
@@ -216,7 +222,7 @@ handleStrategy = (playerValue, playerChoice) =>{
 
 
 componentDidMount(){
-  this.context.manageSignIn()
+  this.context.demo === false ? this.context.manageSignIn(this.props.history) : console.log('hello');
 }
 
 
@@ -271,10 +277,12 @@ componentDidMount(){
                   dealerTurn = {this.state.dealerTurn}
                   showDealerCard = {this.state.showDealerCard}
                   handleStrategy = {this.handleStrategy}
+                  poweredUp = {this.state.poweredUp}
                 />
           <div className="placeholder">
             <PlayerContainer 
               playerHealth = {this.state.playerHealth}
+              poweredUp= {this.state.poweredUp}
             />
           </div>
         </div>

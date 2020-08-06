@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './PlayerContainer.css'
+import images from '../../../images/images'
 
 class PlayerContainer extends React.Component {
 
@@ -20,8 +21,9 @@ class PlayerContainer extends React.Component {
             <div className="Player-image-container">
                 <div className="player-health-container">
                     {healthBar}
+                    <p>{this.props.playerHealth}/100</p>
                 </div>
-                <Link to='/Profile'><div className="player-image"></div></Link>
+                <Link to='/Profile'><img className={this.props.poweredUp === false ? 'player-image' : 'player-image-powered'} src={images.player} /></Link>
             </div>
         )
     }
