@@ -8,7 +8,7 @@ class Tutorial extends React.Component {
     }
 
     handleNext = () =>{
-        if (this.state.card < 3){
+        if (this.state.card < 4){
             this.setState({card: this.state.card + 1})
         } else {
             this.props.history.push('/Game')
