@@ -16,8 +16,13 @@ const tutorialObject = [
     },
     {
         card: 'J',
-        header: '',
-        content: 'Now study up and PREPARE FOR BATTLE!'
+        header: 'New heros being added daily!',
+        content: 'Just select the player image to go to profile and change to whoever you want'
+    },
+    {
+        card: '10',
+        header: 'Now study up and PREPARE FOR BATTLE!',
+        content: ''
     }
 ]
 

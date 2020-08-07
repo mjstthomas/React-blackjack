@@ -12,6 +12,14 @@
     box-shadow: 3px 5px 5px 3px black;
     padding: 0;
 }
+.player-image-form{
+    background-color: gray;
+    width: 50px;
+    height: 100px;
+    border-radius: 15px;
+    box-shadow: 3px 5px 5px 3px black;
+    padding: 0;
+}
 
 .player-image-powered{
     background-color: gray;

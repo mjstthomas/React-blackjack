@@ -84,6 +84,7 @@ class Game extends React.Component {
     for(let i = 0; i < newDeck.length; i++){
       newDeck[i].id = i;
     }
+    setTimeout(() => {
     for(let i = 0; i < newDeck.length; i++){
       const j = Math.floor(Math.random() * newDeck.length)
       const temp = newDeck[i]
@@ -93,8 +94,7 @@ class Game extends React.Component {
     this.setState({
       cards: newDeck
     })
-    setTimeout(() => {
-      this.gameStart()
+    this.gameStart()
     }, 1000);
   }
 
@@ -151,10 +151,12 @@ class Game extends React.Component {
   handleDealer= () => {
         const newCard = this.state.cards.shift()
         const newHand = [...this.state.dealerCards, newCard]
+        setTimeout(()=>{
            this.setState({
                 dealerCards: newHand,
                 dealerCardsOnTurn: newHand
-            }) 
+            })
+        }, 500)
   }
 
 

@@ -22,7 +22,7 @@ class DealerContainer extends React.Component {
                     {healthBar}
                     <p>{this.props.dealerHealth}/100</p>
                 </div>
-                <img className='dealer-image' src={images.dealer} alt="dealer images" />
+                <img className='dealer-image' src={images[3].dealer} alt="dealer images" />
             </div>
         )
     }
