@@ -18,23 +18,26 @@ import { v4 as uuidv4 } from 'uuid'
 import * as firebase from 'firebase';
 import config from './config'
 import 'firebase/firestore';
+import images from './images/images'
 
 
 class App extends React.Component{
     state = {
         users: users,
         user: {},
+        image: images[1],
         signedIn: false,
         signInError: "",
         demo: false
     }
 
     handleSignIn = (user)=>{
-        
+        const userImage = images.filter(item => user.user_image === item.title)
         this.setState({
             user: user,
             signedIn: true,
-            signInError: ""
+            signInError: "",
+            image: userImage[0]
         })
     }
 
@@ -68,14 +71,20 @@ class App extends React.Component{
                             total_games: 0,
                             correct: 0
                         }
-                        this.setState(newUser)
-                        obj.push('/Tutorial')
+                        return this.setState(newUser)
                     }
                     return this.handleSignIn(result)
                 })
         })
     }
 
+
+    handleImage = () =>{
+        if (this.state.user.image){
+        const userImage = images.find(item => this.state.user.image === item.title)
+            this.setState({image: userImage})
+        }   
+    }
 
 
 
@@ -126,6 +135,22 @@ class App extends React.Component{
         })
     }
 
+    handleNewImage = image =>{
+        const player = {...this.state.user}
+        player.user_image = image
+        const userImage = images.filter(item => image === item.title)
+        this.setState({
+            user: player,
+            image: userImage[0]
+        })
+        fetch(`${config.API_ENDPOINT}/user`, {
+            method: 'PATCH',
+            body: JSON.stringify(player),
+            headers: {'content-type': 'application/json'}
+        })
+        console.log(player)
+    }
+
 
     render(){
         const context = {
@@ -138,7 +163,9 @@ class App extends React.Component{
             handleNewGame: this.handleNewGame,
             handleLogoff: this.handleLogoff,
             manageSignIn: this.manageSignIn,
-            demo: this.state.demo
+            demo: this.state.demo,
+            image: this.state.image,
+            handleNewImage: this.handleNewImage
         }
         return (
             <AppContext.Provider value={context}>

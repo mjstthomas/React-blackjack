@@ -259,3 +259,8 @@ img{
   border-radius: 25px;
   box-shadow: 5px 5px 5px black;
 }
+
+.image-form-container{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
