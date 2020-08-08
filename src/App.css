@@ -181,7 +181,8 @@ nav{
 	border-radius: 15px;
 	background-color: black;
 	color: white;
-	margin-left: -40px;
+  margin-left: -40px;
+  box-shadow: 3px 3px rgb(97, 95, 95);
 }
 .faceDownStyle{
   display: inline-block;
@@ -253,10 +254,12 @@ img{
 .strategy-message{
   width: 40%;
   height: 60%;
+  color: aliceblue;
+  text-shadow: 3px 3px 3px whitesmoke;
   margin: auto;
   padding: 2em;
-  background-color: #61dafb;
-  border: 2px solid black;
+  background-color: #0c5c2a;
+  border: 2px solid rgb(97, 82, 82);
   border-radius: 25px;
   box-shadow: 5px 5px 5px black;
 }
