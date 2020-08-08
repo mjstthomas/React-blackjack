@@ -5,9 +5,9 @@
   height: 100%;
 }
 .Game{
-  height: 720px;
+  height: 70px;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 2fr 1fr 2fr 1fr;
 }
 .score{
   position: absolute;
@@ -86,7 +86,7 @@ nav{
   margin: 25px;
 }
 .centerBoard{
-  height: 200px;
+  height: 150px;
   width: 100%;
 }
 .player-container{
@@ -97,7 +97,7 @@ nav{
   width: 100%;
 }
 .playerBoard{
-  height: 200px;
+  height: 150px;
   width: 100%;
   margin: 25px;
 }
@@ -147,7 +147,7 @@ nav{
   box-shadow: 3px 3px 3px black;
 }
 .deal-btn{
-  margin: 1em;
+  margin: 3em;
   width: 3.5em;
   height: 3.5em;
   border-radius: 50px;
@@ -159,7 +159,7 @@ nav{
   box-shadow: 3px 3px 3px black;
 }
 .stay-btn{
-  margin: 1em;
+  margin: 3em;
   width: 3.5em;
   height: 3.5em;
   border-radius: 50px;

@@ -80,17 +80,14 @@ class Game extends React.Component {
 
   deckShuffle = () => {
     this.context.handleNewGame()
-    const newDeck = [...deck, ...deck, ...deck, ...deck]
-    for(let i = 0; i < newDeck.length; i++){
-      newDeck[i].id = i;
-    }
-    setTimeout(() => {
+    const newDeck = [...deck]
     for(let i = 0; i < newDeck.length; i++){
       const j = Math.floor(Math.random() * newDeck.length)
       const temp = newDeck[i]
       newDeck[i] = newDeck[j]
       newDeck[j] = temp
     }
+    setTimeout(()=>{
     this.setState({
       cards: newDeck
     })
@@ -182,7 +179,14 @@ class Game extends React.Component {
     if (this.state.playerHealth <= 10){
       this.props.history.push('/Lose')
     }
-    this.setState({playerHealth: this.state.playerHealth - 10, poweredUp: false})
+    this.setState({
+        playerHealth: this.state.playerHealth - 10, 
+        poweredUp: false,
+        strategyMessage: "You got hit!",
+      })
+      setTimeout(()=>{
+        this.setState({strategyMessage: ""})
+      }, 2000)
   }
 
 
@@ -193,9 +197,21 @@ class Game extends React.Component {
       this.props.history.push('/Win')
     } else if (this.state.poweredUp){
       const powered = n * 1.5;
-      this.setState({dealerHealth: this.state.dealerHealth - powered, poweredUp: false})
+      this.setState({
+          dealerHealth: this.state.dealerHealth - powered,
+          poweredUp: false,
+          strategyMessage: "You landed a hit!"})
+      setTimeout(()=>{
+        this.setState({strategyMessage: ""})
+      }, 2000)
     } else {
-      this.setState({dealerHealth: this.state.dealerHealth - n})
+      this.setState({
+        dealerHealth: this.state.dealerHealth - n,
+        strategyMessage: "You landed a hit!",
+      })
+      setTimeout(()=>{
+        this.setState({strategyMessage: ""})
+      }, 2000)
     }
 
   }
@@ -206,16 +222,8 @@ class Game extends React.Component {
 handleStrategy = (playerValue, playerChoice) =>{
     const playerOptions = this.state.strategy.find(item => item.id === playerValue)
     if (playerChoice === playerOptions[this.state.dealerCards[1].face]){
-      this.setState({strategyMessage: 'You were correct', poweredUp: true})
-      setTimeout(()=>{
-        this.setState({strategyMessage: ""})
-      }, 5000)
-    } else if (playerChoice !== playerOptions[this.state.dealerCards[1].face]){
-      this.setState({strategyMessage: 'You were incorrect'})
-      setTimeout(()=>{
-        this.setState({strategyMessage: ""})
-      }, 5000)
-    }
+      this.setState({poweredUp: true})
+    } 
 
 }
 
@@ -247,8 +255,9 @@ componentDidMount(){
                     handOver = {this.handOver}
                     showDealerCard={this.state.showDealerCard}
                   />
-          <div className="placeholder"></div>
-            {/* {visualDeck} */}
+          <div className="deck-container">
+          </div>
+            
           </div>
         <div className="centerBoard"> 
                 <ScoreBoard 
@@ -285,6 +294,9 @@ componentDidMount(){
               poweredUp= {this.state.poweredUp}
             />
           </div>
+        </div>
+        <div className="ad-container">
+
         </div>
       </div>
     );
