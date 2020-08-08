@@ -4,7 +4,7 @@ import naruto1 from './naruto1.jpg'
 import naruto2 from './naruto2.jpg'
 import saitama1 from './saitama1.jpg'
 import saitama2 from './saitama2.jpg'
-import frieza from './frieza.png'
+import frieza from './frieza.jpg'
 
 
 const images = [

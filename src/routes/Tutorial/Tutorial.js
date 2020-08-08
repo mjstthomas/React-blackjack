@@ -1,6 +1,7 @@
 import React from 'react';
 import TutorialCard from './TutorialCard'
 import tutorialObject from './tutorialObject'
+import arrow from '../../images/arrow.png'
 
 class Tutorial extends React.Component {
     state = {
@@ -17,9 +18,13 @@ class Tutorial extends React.Component {
     render(props){
         const item = tutorialObject[this.state.card]
         return (
-            <div className='tutorial-container'>
-                <TutorialCard card={item.card} header={item.header} content={item.content} />
-                <button className="next-btn" onClick={this.handleNext}>Next</button>
+            <div className="tutorial">
+                <div className='tutorial-container'>
+                    <TutorialCard card={item.card} header={item.header} content={item.content} />
+                </div>
+                <div className="next-btn-container">
+                    <img className="next-image" src={arrow} onClick={this.handleNext}/>
+                </div>
             </div>
         )
     }

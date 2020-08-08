@@ -1,8 +1,16 @@
 .tutorial-container{
+    display: inline-block;
     padding: 5em;
     margin: auto;
 }
 
 .next-btn{
     margin: auto;
+}
+.next-btn-container{
+    display: inline-block;
+}
+.tutorial{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
 }

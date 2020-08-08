@@ -1,4 +1,8 @@
 .player-image-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: right;
     height: 100%;
     width: 100%;
 }
@@ -7,7 +11,6 @@
     background-color: gray;
     width: 70px;
     height: 120px;
-    float: right;
     border-radius: 15px;
     box-shadow: 3px 5px 5px 3px black;
     padding: 0;
@@ -25,7 +28,6 @@
     background-color: gray;
     width: 70px;
     height: 120px;
-    float: right;
     border-radius: 15px;
     box-shadow: 0px 0px 5px 5px red;
     padding: 0;
@@ -33,7 +35,7 @@
 
 
 .player-health-container{
-    margin-bottom: 25px;
+    margin-left: 0;
     width: 100px;
 }
 .player-health-container p{
@@ -49,6 +51,5 @@
     margin-bottom: 10px;
     height: 5px;
     width: 1px;
-    float: right;
     box-shadow: 3px 3px 3px black;
 }

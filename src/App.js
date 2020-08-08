@@ -69,7 +69,8 @@ class App extends React.Component{
                             password: userProf.id,
                             wins: 0,
                             total_games: 0,
-                            correct: 0
+                            correct: 0,
+                            Tutorial: true
                         }
                         return this.setState(newUser)
                     }

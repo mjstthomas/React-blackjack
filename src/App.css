@@ -5,7 +5,7 @@
   height: 100%;
 }
 .Game{
-  height: 750px;
+  height: 720px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
 }
@@ -49,6 +49,7 @@
   color: #61dafb;
 }
 body{
+  height: fit-content;
   background-image: url("https://us.123rf.com/450wm/malekas/malekas1405/malekas140500008/28502181-green-felt-texture.jpg?ver=6");
 }
 

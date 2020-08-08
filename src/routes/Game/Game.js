@@ -95,7 +95,7 @@ class Game extends React.Component {
       cards: newDeck
     })
     this.gameStart()
-    }, 1000);
+    }, 1500);
   }
 
 
@@ -151,12 +151,10 @@ class Game extends React.Component {
   handleDealer= () => {
         const newCard = this.state.cards.shift()
         const newHand = [...this.state.dealerCards, newCard]
-        setTimeout(()=>{
            this.setState({
                 dealerCards: newHand,
                 dealerCardsOnTurn: newHand
             })
-        }, 500)
   }
 
 
@@ -181,7 +179,7 @@ class Game extends React.Component {
 
 
   handlePlayerHealth = () =>{
-    if (this.state.playerHealth < 10){
+    if (this.state.playerHealth <= 10){
       this.props.history.push('/Lose')
     }
     this.setState({playerHealth: this.state.playerHealth - 10, poweredUp: false})
