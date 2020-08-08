@@ -23,7 +23,7 @@ class Tutorial extends React.Component {
                     <TutorialCard card={item.card} header={item.header} content={item.content} />
                 </div>
                 <div className="next-btn-container">
-                    <img className="next-image" src={arrow} onClick={this.handleNext}/>
+                    <img className="next-image" src={arrow} onClick={this.handleNext} alt="next button"/>
                 </div>
             </div>
         )

@@ -1,8 +1,6 @@
 .player-image-container{
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    flex: right;
+    flex-direction: row-reverse;
     height: 100%;
     width: 100%;
 }
@@ -35,7 +33,7 @@
 
 
 .player-health-container{
-    margin-left: 0;
+    margin: auto;
     width: 100px;
 }
 .player-health-container p{

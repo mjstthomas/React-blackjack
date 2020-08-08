@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './PlayerContainer.css'
-import images from '../../../images/images'
 import AppContext from '../../../AppContext'
 
 class PlayerContainer extends React.Component {
@@ -24,7 +23,7 @@ class PlayerContainer extends React.Component {
                     {healthBar}
                     <p>{this.props.playerHealth}/100</p>
                 </div>
-                <Link to='/Profile'><img className={this.props.poweredUp === false ? 'player-image' : 'player-image-powered'} src={this.props.poweredUp ? this.context.image.two : this.context.image.one} /></Link>
+                <Link to='/Profile'><img className={this.props.poweredUp === false ? 'player-image' : 'player-image-powered'} src={this.props.poweredUp ? this.context.image.two : this.context.image.one} alt="player character" /></Link>
             </div>
         )
     }

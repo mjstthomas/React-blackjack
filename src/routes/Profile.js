@@ -49,13 +49,13 @@ class Profile extends React.Component{
                     <div>
                         <form className="image-form-container"> 
                             <div>
-                                <img className="player-image-form" name="goku" src={images[0].one} onClick={this.handleImage}/>
+                                <img className="player-image-form" name="goku" src={images[0].one} onClick={this.handleImage} alt="goku"/>
                             </div>
                             <div>
-                                <img className="player-image-form" name="naruto" src={images[1].one} onClick={this.handleImage}/>
+                                <img className="player-image-form" name="naruto" src={images[1].one} onClick={this.handleImage} alt="naruto"/>
                             </div>
                             <div>
-                                <img className="player-image-form" name="saitama" src={images[2].one} onClick={this.handleImage}/>
+                                <img className="player-image-form" name="saitama" src={images[2].one} onClick={this.handleImage} alt="saitama"/>
                             </div>
                         </form>
                     </div>}

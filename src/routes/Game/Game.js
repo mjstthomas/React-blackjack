@@ -256,6 +256,7 @@ componentDidMount(){
                     showDealerCard={this.state.showDealerCard}
                   />
           <div className="deck-container">
+            {visualDeck}
           </div>
             
           </div>
