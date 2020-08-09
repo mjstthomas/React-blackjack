@@ -29,6 +29,8 @@ class Game extends React.Component {
     gameStart: false,
     handOver: false,
     strategyMessage: "",
+    playerHit: false,
+    dealerHit: false,
   };
 
 
@@ -182,11 +184,11 @@ class Game extends React.Component {
     this.setState({
         playerHealth: this.state.playerHealth - 10, 
         poweredUp: false,
-        strategyMessage: "You got hit!",
+        playerHit: true,
       })
       setTimeout(()=>{
-        this.setState({strategyMessage: ""})
-      }, 2000)
+        this.setState({playerHit: false})
+      }, 1000)
   }
 
 
@@ -200,18 +202,18 @@ class Game extends React.Component {
       this.setState({
           dealerHealth: this.state.dealerHealth - powered,
           poweredUp: false,
-          strategyMessage: "You landed a hit!"})
+          dealerHit: true})
       setTimeout(()=>{
-        this.setState({strategyMessage: ""})
-      }, 2000)
+        this.setState({dealerHit: false})
+      }, 1000)
     } else {
       this.setState({
         dealerHealth: this.state.dealerHealth - n,
-        strategyMessage: "You landed a hit!",
+        dealerHit: true,
       })
       setTimeout(()=>{
-        this.setState({strategyMessage: ""})
-      }, 2000)
+        this.setState({dealerHit: false})
+      }, 1000)
     }
 
   }
@@ -241,7 +243,8 @@ componentDidMount(){
         <div className="dealer-container">
           <div className="placeholder">
             <DealerContainer
-              dealerHealth = {this.state.dealerHealth} 
+              dealerHealth = {this.state.dealerHealth}
+              dealerHit = {this.state.dealerHit}
             />
           </div>
                   <Dealer 
@@ -293,6 +296,7 @@ componentDidMount(){
             <PlayerContainer 
               playerHealth = {this.state.playerHealth}
               poweredUp= {this.state.poweredUp}
+              playerHit = {this.state.playerHit}
             />
           </div>
         </div>

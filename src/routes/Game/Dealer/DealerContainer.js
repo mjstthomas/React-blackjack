@@ -1,6 +1,7 @@
 import React from 'react'
 import './DealerContainer.css'
 import images from '../../../images/images'
+import pow from '../../../images/pow.png'
 
 class DealerContainer extends React.Component {
 
@@ -22,7 +23,7 @@ class DealerContainer extends React.Component {
                     {healthBar}
                     <p>{this.props.dealerHealth}/100</p>
                 </div>
-                <img className='dealer-image' src={images[3].dealer} alt="dealer images" />
+                <img className={this.props.dealerHit ? 'dealer-image-hit':'dealer-image'} src={images[3].dealer} alt="dealer images" />
             </div>
         )
     }

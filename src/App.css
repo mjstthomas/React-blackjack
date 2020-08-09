@@ -1,8 +1,12 @@
 .App {
+  font-family: 'Luckiest Guy', cursive;
   text-align: center;
   display: grid;
   grid-template-rows: repeat(3, auto);
   height: 100%;
+}
+.hidden{
+  display: none;
 }
 .Game{
   height: 70px;
@@ -33,6 +37,23 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+@keyframes hit{
+  0%{
+    right: 2px;
+  }
+  25%{
+    left: 4px;
+  }
+  50% {
+    right: 4px;
+  }
+  75%{
+    left: 4px;
+  }
+  100%{
+    right: 2px;
+  }
+}
 
 .App-header {
   background-color: #282c34;
@@ -58,7 +79,15 @@ nav{
   height: 20px;
   text-align: right;
   margin: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), rgb(129, 120, 120);
+  margin-top: 5px;
+  /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), rgb(129, 120, 120); */
+}
+.link{
+  text-decoration: none;
+  background-color: rgb(16, 16, 184);
+  color: white;
+  margin: 10px;
+  font-size: 20px;
 }
 
 .options{
@@ -147,7 +176,7 @@ nav{
   box-shadow: 3px 3px 3px black;
 }
 .deal-btn{
-  margin: 3em;
+  margin: 2em;
   width: 3.5em;
   height: 3.5em;
   border-radius: 50px;
@@ -159,7 +188,7 @@ nav{
   box-shadow: 3px 3px 3px black;
 }
 .stay-btn{
-  margin: 3em;
+  margin: 2em;
   width: 3.5em;
   height: 3.5em;
   border-radius: 50px;
@@ -309,11 +338,20 @@ img{
     height: 150px;
     width: 90px;
   }
+  .player-image-hit{
+    height: 150px;
+    width: 90px;
+  }
+  
   .player-image-powered{
     height: 150px;
     width: 90px;
   }
   .dealer-image{
+    height: 150px;
+    width: 90px;
+  }
+  .dealer-image-hit{
     height: 150px;
     width: 90px;
   }
