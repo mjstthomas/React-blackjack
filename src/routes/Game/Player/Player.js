@@ -38,6 +38,7 @@ state = {
 						dealerTurn = {this.props.dealerTurn}
 						showDealerCard = {this.props.showDealerCard}
 						handleStrategy = {this.props.handleStrategy}
+						handleDouble = {this.props.handleDouble}
 					/>
 				</div>
 			</div>

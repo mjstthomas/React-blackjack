@@ -72,7 +72,7 @@ class App extends React.Component{
                         }
                         return this.setState({
                             user: newUser,
-                            tutorial: true
+                            demo: true
                         })
 
                     }

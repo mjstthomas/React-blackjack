@@ -11,6 +11,11 @@ class Choices extends React.Component{
 		this.props.changeSides();
 		this.props.handleStrategy(this.props.playerValue, "s");
 	}
+
+	handleDouble = () =>{
+		this.props.handleDouble();
+		this.props.handleStrategy(this.props.playerValue, "d")
+	}
 	render(props){
 		return(
 			<div className="btn-container">
@@ -18,6 +23,7 @@ class Choices extends React.Component{
 				{this.props.gameStart && this.props.showDealerCard && <button className="newHand-btn" type="button" onClick={this.props.newHand}>New</button>}
 	        	{this.props.gameStart && !this.props.dealerTurn && !this.props.showDealerCard && <button className="deal-btn" type="button" onClick={this.handleHit} >Hit</button>}
 	        	{this.props.gameStart && !this.props.dealerTurn && !this.props.showDealerCard && <button className="stay-btn" type="button" onClick={this.handleStay}>Stay</button>}
+				{this.props.gameStart && !this.props.dealerTurn && !this.props.showDealerCard && <button className="double-btn" type="button" onClick={this.handleDouble}>Double</button>}
 	        </div>)}
 }
 export default Choices

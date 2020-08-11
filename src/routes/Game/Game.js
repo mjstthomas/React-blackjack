@@ -31,6 +31,7 @@ class Game extends React.Component {
     strategyMessage: "",
     playerHit: false,
     dealerHit: false,
+    doubleDown: false
   };
 
 
@@ -107,7 +108,8 @@ class Game extends React.Component {
       dealerCardsOnTurn: [],
       showDealerCard: false,
       handOver: false,
-      poweredUp: false
+      poweredUp: false,
+      doubleDown: false
     })
     this.gameStart()
   }
@@ -144,8 +146,13 @@ class Game extends React.Component {
         })
   }
 
+//handles double down button, uses handle deal and change sides
 
-
+handleDouble = () =>{
+  this.setState({doubleDown: true})
+  this.handleDeal()
+  this.changeSides()
+}
 //deals cards to the dealer 
   handleDealer= () => {
         const newCard = this.state.cards.shift()
@@ -178,11 +185,15 @@ class Game extends React.Component {
 
 
   handlePlayerHealth = () =>{
-    if (this.state.playerHealth <= 10){
+    let hit = 10;
+    if (this.state.doubleDown){
+      hit = 10 * 2;
+    }
+    if (this.state.playerHealth <= hit){
       this.props.history.push('/Lose')
     }
     this.setState({
-        playerHealth: this.state.playerHealth - 10, 
+        playerHealth: this.state.playerHealth - hit, 
         poweredUp: false,
         playerHit: true,
       })
@@ -194,11 +205,15 @@ class Game extends React.Component {
 
 
   handleDealerHealth = (n) =>{
-    if (this.state.dealerHealth <= n){
+    let hit = n;
+    if (this.state.doubleDown){
+      hit = n * 2;
+    }
+    if (this.state.dealerHealth <= hit){
       this.context.handleWin()
       this.props.history.push('/Win')
     } else if (this.state.poweredUp){
-      const powered = n * 1.5;
+      const powered = hit * 1.5;
       this.setState({
           dealerHealth: this.state.dealerHealth - powered,
           poweredUp: false,
@@ -208,7 +223,7 @@ class Game extends React.Component {
       }, 1000)
     } else {
       this.setState({
-        dealerHealth: this.state.dealerHealth - n,
+        dealerHealth: this.state.dealerHealth - hit,
         dealerHit: true,
       })
       setTimeout(()=>{
@@ -291,6 +306,7 @@ componentDidMount(){
                   showDealerCard = {this.state.showDealerCard}
                   handleStrategy = {this.handleStrategy}
                   poweredUp = {this.state.poweredUp}
+                  handleDouble = {this.handleDouble}
                 />
           <div className="placeholder">
             <PlayerContainer 

@@ -199,6 +199,18 @@ nav{
   font-size: .7em;
   box-shadow: 3px 3px 3px black;
 }
+.double-btn{
+  margin: 2em;
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 50px;
+  border: 2px dashed black;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  font-size: .7em;
+  box-shadow: 3px 3px 3px black;
+}
 
 .myStyle{
 	display: inline-block;
@@ -399,6 +411,18 @@ img{
     border: 2px dashed white;
     background-color: blue;
     color: white;
+    font-weight: 500;
+    font-size: .7em;
+    box-shadow: 3px 3px 3px black;
+  }
+  .double-btn{
+    margin: 5em;
+    width: 5em;
+    height: 5em;
+    border-radius: 50px;
+    border: 2px dashed black;
+    background-color: white;
+    color: black;
     font-weight: 500;
     font-size: .7em;
     box-shadow: 3px 3px 3px black;

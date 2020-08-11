@@ -6,13 +6,13 @@ const tutorialObject = [
     },
     {
         card: 'K',
-        header: 'It is a turned based fighting game!',
+        header: 'It is a turn based fighting game!',
         content: 'It will be you against the dealer in a fight to the finish!',
     },
     {
         card: 'Q',
         header: 'Each hand results in the loser taking damage!',
-        content: 'and each time you follow correct strategy, your strength will power up, taking more damage from the dealer!  If you ever need guidance, select the "?" to pull up the strategy board for help!',
+        content: 'and each time you follow correct strategy, your strength will power up, taking more damage from the dealer!  Beware of the Double Down though, it may backfire!',
     },
     {
         card: 'J',
@@ -22,7 +22,7 @@ const tutorialObject = [
     {
         card: '10',
         header: 'Now study up and PREPARE FOR BATTLE!',
-        content: ''
+        content: 'If you ever need guidance, select the "?" to pull up the strategy board for help!'
     }
 ]
 
