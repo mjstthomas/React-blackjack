@@ -12,7 +12,7 @@ const tutorialObject = [
     {
         card: 'Q',
         header: 'Each hand results in the loser taking damage!',
-        content: 'and each time you follow correct strategy, your strength will power up!',
+        content: 'and each time you follow correct strategy, your strength will power up, taking more damage from the dealer!  If you ever need guidance, select the "?" to pull up the strategy board for help!',
     },
     {
         card: 'J',

@@ -32,7 +32,6 @@ render(){
         />)
     return(
         <div className="strategy-board-container">
-            <h1 className="board-controller" onClick={this.handleView}>?</h1>
             <div className={`strategy-board ${!this.state.tableView ? 'hidden' : null}`}>
             <h3 className="board-title">Strategy Board</h3>
             <table>
@@ -60,6 +59,7 @@ render(){
             </table>
             <p>H = hit  S = stay</p>
             </div>
+            <h1 className="board-controller" onClick={this.handleView}>?</h1>
         </div>
     )}
 }

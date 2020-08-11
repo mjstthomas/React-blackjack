@@ -28,7 +28,8 @@ class App extends React.Component{
         image: images[1],
         signedIn: false,
         signInError: "",
-        demo: false
+        demo: false,
+        tutorial: false
     }
 
     handleSignIn = (user)=>{
@@ -68,9 +69,12 @@ class App extends React.Component{
                             wins: 0,
                             total_games: 0,
                             correct: 0,
-                            Tutorial: true
                         }
-                        return this.setState(newUser)
+                        return this.setState({
+                            user: newUser,
+                            tutorial: true
+                        })
+
                     }
                     return this.handleSignIn(result)
                 })
@@ -101,6 +105,7 @@ class App extends React.Component{
     }
 
     handleDelete = (user) =>{
+        this.setState({user: {}})
         fetch(`${config.API_ENDPOINT}/user`, {
             method: 'DELETE',
             body: JSON.stringify(this.state.user),
@@ -168,7 +173,8 @@ class App extends React.Component{
             manageSignIn: this.manageSignIn,
             demo: this.state.demo,
             image: this.state.image,
-            handleNewImage: this.handleNewImage
+            handleNewImage: this.handleNewImage,
+            tutorial: this.state.tutorial
         }
         return (
             <AppContext.Provider value={context}>

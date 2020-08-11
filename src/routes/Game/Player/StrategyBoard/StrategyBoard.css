@@ -28,6 +28,7 @@ tfoot{
     text-align: center;
 }
 .board-controller{
+    text-align: right;
     box-sizing: border-box;
-    margin: 0;
+    margin: 5px;
 }
