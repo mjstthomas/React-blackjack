@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './PlayerContainer.css'
 import AppContext from '../../../AppContext'
 import pow from '../../../images/pow.png'
+import StrategyBoard from './StrategyBoard/StrategyBoard'
 
 class PlayerContainer extends React.Component {
     static contextType = AppContext
@@ -24,6 +25,7 @@ class PlayerContainer extends React.Component {
                     {healthBar}
                     <p>{this.props.playerHealth}/100</p>
                 </div>
+                <StrategyBoard />
                 <Link to='/Profile'><img className={this.props.poweredUp === false ? (this.props.playerHit ? 'player-image-hit' : 'player-image') : 'player-image-powered'} src={this.props.poweredUp ? this.context.image.two : this.context.image.one} alt="player character" /></Link>
             </div>
         )

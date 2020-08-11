@@ -43,7 +43,6 @@ class App extends React.Component{
 
     handleDemo = () =>{
         this.setState({demo: true})
-        console.log(this.state.demo)
     }
     manageSignIn = (obj) =>{
         firebase.auth().onAuthStateChanged(user => {
@@ -99,7 +98,6 @@ class App extends React.Component{
         newUser.correct = 0;
         const newUsers = [...this.state.users, newUser]
         this.setState({users: newUsers})
-        console.log(newUsers)
     }
 
     handleDelete = (user) =>{
@@ -115,11 +113,13 @@ class App extends React.Component{
         winner.wins++
         this.setState({user: winner})
 
-        fetch(`${config.API_ENDPOINT}/user`, {
-            method: 'PATCH',
-            body: JSON.stringify(winner),
-            headers: {'content-type': 'application/json'}
-        })
+       if (this.state.demo === false){
+            fetch(`${config.API_ENDPOINT}/user`, {
+                method: 'PATCH',
+                body: JSON.stringify(winner),
+                headers: {'content-type': 'application/json'}
+            })
+        } 
     }
 
     //updates total games for user
@@ -128,11 +128,13 @@ class App extends React.Component{
         const player = {...this.state.user}
         player.total_games++
         this.setState({user: player})
-        fetch(`${config.API_ENDPOINT}/user`, {
+        if (this.state.demo === false){
+            fetch(`${config.API_ENDPOINT}/user`, {
             method: 'PATCH',
             body: JSON.stringify(player),
             headers: {'content-type': 'application/json'}
-        })
+            })
+        }
     }
 
     handleNewImage = image =>{
@@ -143,12 +145,13 @@ class App extends React.Component{
             user: player,
             image: userImage[0]
         })
-        fetch(`${config.API_ENDPOINT}/user`, {
-            method: 'PATCH',
-            body: JSON.stringify(player),
-            headers: {'content-type': 'application/json'}
-        })
-        console.log(player)
+        if (this.state.demo === false){
+                fetch(`${config.API_ENDPOINT}/user`, {
+                    method: 'PATCH',
+                    body: JSON.stringify(player),
+                    headers: {'content-type': 'application/json'}
+                })
+        }
     }
 
 

@@ -25,7 +25,6 @@ class Profile extends React.Component{
         const { name } = event.target
         this.context.handleNewImage(name)
         this.setState({change: false})
-        console.log(name)
     }
     render(){
         const user = this.context.user
