@@ -17,17 +17,17 @@ https://vercel.com/mjstthomas/react-blackjack/ashek0hms
 
 Summary:
 
-  Created a fun and entertaining way to teach basic blackjack strategy.
+"  Created a fun and entertaining way to teach basic blackjack strategy."
 
-  It starts off with taking you to the sign in screen using firebase Oauth.
+"  It starts off with taking you to the sign in screen using firebase Oauth."
 
-  If you choose demo, it will take you thru a quick tutorial and let you play a game with no sign in.
+"  If you choose demo, it will take you thru a quick tutorial and let you play a game with no sign in."
 
-  If you win or lose, it takes you to a window announcing it and sending you either back to the game screen or sign up screen depending on whether or not you are   in demo mode.
+"  If you win or lose, it takes you to a window announcing it and sending you either back to the game screen or sign up screen depending on whether or not you are    in demo mode."
 
-  If you select the player image, it takes you to your player profile where you can change characters or delete your profile.
+"  If you select the player image, it takes you to your player profile where you can change characters or delete your profile."
 
-  There is a leader board telling players where they rank.
+"  There is a leader board telling players where they rank."
 
 
 
