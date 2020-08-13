@@ -16,6 +16,7 @@ https://vercel.com/mjstthomas/react-blackjack/ashek0hms
 
 
 Summary:
+
 Created a fun and entertaining way to teach basic blackjack strategy.
 
 It starts off with taking you to the sign in screen using firebase Oauth.
@@ -27,6 +28,9 @@ If you win or lose, it takes you to a window announcing it and sending you eithe
 If you select the player image, it takes you to your player profile where you can change characters or delete your profile.
 
 There is a leader board telling players where they rank.
+
+
+
 
 Technologies:
 
