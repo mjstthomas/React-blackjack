@@ -5,15 +5,9 @@ Battle Blackjack!
 link to site:
 https://vercel.com/mjstthomas/react-blackjack/ashek0hms
 
-Sign in page using Oauth:
 ![image](https://user-images.githubusercontent.com/53156193/90138764-586c1800-dd2c-11ea-8556-bb8981cfd9da.png)
-
-If you choose demo, it will take you to a quick tutorial set up and a demo game to play thru:
 ![image](https://user-images.githubusercontent.com/53156193/90139307-0972b280-dd2d-11ea-88a6-15f04fd95250.png)
-
-Game screen:
 ![image](https://user-images.githubusercontent.com/53156193/90138904-7c2f5e00-dd2c-11ea-97b4-3fda751c1a55.png)
-
 ![image](https://user-images.githubusercontent.com/53156193/90138989-98cb9600-dd2c-11ea-89b7-f8588f107dba.png)
 ![image](https://user-images.githubusercontent.com/53156193/90139067-b7ca2800-dd2c-11ea-93f8-569833f513c9.png)
 ![image](https://user-images.githubusercontent.com/53156193/90139130-c9abcb00-dd2c-11ea-8fa7-fb61855df15b.png)
