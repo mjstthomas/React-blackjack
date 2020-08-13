@@ -14,9 +14,11 @@
   grid-template-rows: 2fr 1fr 2fr 1fr;
 }
 .score{
-  position: absolute;
+  position: relative;
   bottom: 0;
   right: 0;
+  width: 10%;
+  background-color: white;
   border: 1px solid black;
   margin: 10px;
 }
@@ -71,7 +73,11 @@
 }
 body{
   height: fit-content;
-  background-image: url("https://us.123rf.com/450wm/malekas/malekas1405/malekas140500008/28502181-green-felt-texture.jpg?ver=6");
+  background: url("https://us.123rf.com/450wm/malekas/malekas1405/malekas140500008/28502181-green-felt-texture.jpg?ver=6") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 nav{
@@ -115,7 +121,7 @@ nav{
   margin: 25px;
 }
 .centerBoard{
-  height: 150px;
+  height: 100px;
   width: 100%;
 }
 .player-container{
@@ -153,8 +159,9 @@ nav{
 }
 
 .newGame-btn{
-  width: 4em;
-  height: 4em;
+  font-family: 'Luckiest Guy', cursive;
+  width: 5em;
+  height: 5em;
   border-radius: 50px;
   border: 2px dashed white;
   background-color: black;
@@ -164,54 +171,70 @@ nav{
   box-shadow: 3px 3px 3px black;
 }
 .newHand-btn{
+  font-family: 'Luckiest Guy', cursive;
   margin: 1em;
-  width: 3.5em;
-  height: 3.5em;
+  width: 5em;
+  height: 5em;
   border-radius: 50px;
   border: 2px dashed white;
   background-color: green;
   color: white;
-  font-weight: 500;
+  font-weight: 700;
   font-size: .7em;
   box-shadow: 3px 3px 3px black;
 }
 .deal-btn{
-  margin: 2em;
-  width: 3.5em;
-  height: 3.5em;
+  font-family: 'Luckiest Guy', cursive;
+  margin: 1.5em;
+  width: 5em;
+  height: 5em;
   border-radius: 50px;
   border: 2px dashed white;
   background-color: red;
   color: white;
   font-weight: 500;
-  font-size: .7em;
+  font-size: .6em;
   box-shadow: 3px 3px 3px black;
 }
 .stay-btn{
-  margin: 2em;
-  width: 3.5em;
-  height: 3.5em;
+  font-family: 'Luckiest Guy', cursive;
+  margin: 1.5em;
+  width: 5em;
+  height: 5em;
   border-radius: 50px;
   border: 2px dashed white;
   background-color: blue;
   color: white;
   font-weight: 500;
-  font-size: .7em;
+  font-size: .6em;
   box-shadow: 3px 3px 3px black;
 }
 .double-btn{
-  margin: 2em;
-  width: 3.5em;
-  height: 3.5em;
+  font-family: 'Luckiest Guy', cursive;
+  margin: 1.5em;
+  width: 5em;
+  height: 5em;
   border-radius: 50px;
   border: 2px dashed black;
   background-color: white;
   color: black;
   font-weight: 500;
+  font-size: .6em;
+  box-shadow: 3px 3px 3px black;
+}
+.goBack-btn{
+  font-family: 'Luckiest Guy', cursive;
+  margin: 2em auto;
+  width: 5em;
+  height: 5em;
+  border-radius: 50px;
+  border: 2px dashed black;
+  background-color: yellow;
+  color: black;
+  font-weight: 500;
   font-size: .7em;
   box-shadow: 3px 3px 3px black;
 }
-
 .myStyle{
 	display: inline-block;
 	position: relative;
@@ -326,8 +349,8 @@ img{
     display: inline-block;
     position: relative;
     font-size: 24px;
-    width: 100px;
-    height: 200px;
+    width: 80px;
+    height: 150px;
     border: 1px solid white;
     border-radius: 15px;
     background-color: black;
@@ -338,8 +361,8 @@ img{
     display: inline-block;
     position: relative;
     font-size: 24px;
-    width: 100px;
-    height: 200px;
+    width: 80px;
+    height: 150px;
     border: 1px solid white;
     border-radius: 15px;
     background-color: black;
@@ -422,6 +445,18 @@ img{
     border-radius: 50px;
     border: 2px dashed black;
     background-color: white;
+    color: black;
+    font-weight: 500;
+    font-size: .7em;
+    box-shadow: 3px 3px 3px black;
+  }
+  .goBack-btn{
+    margin: auto;
+    width: 5em;
+    height: 5em;
+    border-radius: 50px;
+    border: 2px dashed black;
+    background-color: yellow;
     color: black;
     font-weight: 500;
     font-size: .7em;

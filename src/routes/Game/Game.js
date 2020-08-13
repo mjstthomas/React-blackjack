@@ -209,29 +209,29 @@ handleDouble = () =>{
     if (this.state.doubleDown){
       hit = n * 2;
     }
+
+    if (this.state.poweredUp){
+       hit = hit * 1.5;
+    } 
+
     if (this.state.dealerHealth <= hit){
       this.context.handleWin()
       this.props.history.push('/Win')
-    } else if (this.state.poweredUp){
-      const powered = hit * 1.5;
-      this.setState({
-          dealerHealth: this.state.dealerHealth - powered,
-          poweredUp: false,
-          dealerHit: true})
-      setTimeout(()=>{
-        this.setState({dealerHit: false})
-      }, 1000)
-    } else {
+    } 
+    
       this.setState({
         dealerHealth: this.state.dealerHealth - hit,
         dealerHit: true,
       })
       setTimeout(()=>{
-        this.setState({dealerHit: false})
+        this.setState({
+          dealerHit: false,
+          poweredUp: false
+        })
       }, 1000)
     }
 
-  }
+
 
 
 

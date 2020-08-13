@@ -31,7 +31,7 @@ class Profile extends React.Component{
         return (
             <div>
                 <div className="goback">
-                    <p className="goBack" onClick={this.handleClick} >Go Back</p>
+                    <button className="goBack-btn" onClick={this.handleClick} >Go Back</button>
                 </div>
                 <div className="profile-container">
                     <h1>Profile</h1>
@@ -39,10 +39,10 @@ class Profile extends React.Component{
                     <p>games played: {user.total_games}</p>
                     <p>wins: {user.wins}</p>
                     <p>followed strategy: {user.correct}</p>
-                    <p>player image: {user.user_image} <button onClick={this.handleChangeImage}>Change?</button></p>
+                    <p>player image: {user.user_image} <button className="stay-btn" onClick={this.handleChangeImage}>Change?</button></p>
                 </div>
                 <div className="delete-container">
-                    <button onClick={() => this.handleDelete(user)}>delete player?</button>
+                    <button className="newGame-btn" onClick={() => this.handleDelete(user)}>delete player?</button>
                 </div>
                 {this.state.change &&
                     <div>

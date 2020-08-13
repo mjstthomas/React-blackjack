@@ -1,15 +1,27 @@
-import React from 'react'
+import React from 'react';
+import AppContext from '../AppContext';
 
-export default function Lose(props){
-    function handleClick(){
-        props.history.push('/Game')
-    }
+class Lose extends React.Component{
+
+    static contextType = AppContext
+    handleClick = () =>{
+        if (this.context.demo === true){
+            this.context.handleDemo()
+            this.props.history.push('/');
+        } else {
+            this.props.history.push('/Game');
+        }
+    };
+
+    render(props){
     return (
         <div>
             <div className="instruction-container">
                 <h1>Sorry! You Lose!</h1>
-                <button onClick={handleClick}>Try again?</button>
+                <button className="newGame-btn" onClick={this.handleClick}>Try again?</button>
             </div>
         </div>
-    )
+    )}
 }
+
+export default Lose;

@@ -1,5 +1,6 @@
 import React from 'react'
 import config from '../config'
+import './LeaderBoard.css'
 
 class LeaderBoard extends React.Component{
 state = {
@@ -19,12 +20,14 @@ componentDidMount(){
 }
     render(){
 
-        const rankedList = this.state.rankedUsers.map(item => <li key={item.id}>name:{item.user_name} wins:{item.wins} </li>)
+        const rankedList = this.state.rankedUsers.map(item => <li key={item.id}>{item.user_name} <span className="wins">{item.wins}</span> </li>)
 
         return (
             <div>
-                <p onClick={this.goBack}>Go Back</p>
-                <div className="leader-container">
+                <button className="goBack-btn" onClick={this.goBack}>Go Back</button>
+                <div className="instruction-container">
+                    <h1>Leaders</h1>
+                    <h4>Name            Wins</h4>
                     <ol>
                         {rankedList}
                     </ol>

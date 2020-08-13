@@ -1,0 +1,11 @@
+ol li{
+    width: 90%;
+    text-align: left;
+    border-bottom: 1px solid black;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+.wins{
+    float: right;
+}

@@ -27,6 +27,7 @@ state = {
 					<Hand 
 						playerhand={playerhand} 
 						playerCards = {this.props.playerCards}
+						playerValue = {playerValue}
 					/>
 					<Choices 
 						deckShuffle={this.props.deckShuffle}  
