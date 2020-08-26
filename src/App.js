@@ -61,12 +61,14 @@ class App extends React.Component{
             fetch(`${config.API_ENDPOINT}/users/${userProf.email}:${userProf.id}:${userProf.displayName}`)
                 .then(response => response.json())
                 .then(result =>{
+                    console.log(result)
                     if (!result.user_email){
                         
                         const newUser = {
                             id: userProf.id,
                             user_name: userProf.displayName,
                             user_email: userProf.email,
+                            user_image: 'goku',
                             password: userProf.id,
                             wins: 0,
                             total_games: 0,
@@ -80,6 +82,7 @@ class App extends React.Component{
                     }
                     return this.handleSignIn(result);
                 })
+                .catch(error => console.log(error))
         })
     };
 

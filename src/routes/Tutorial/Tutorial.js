@@ -1,9 +1,13 @@
 import React from 'react';
-import TutorialCard from './TutorialCard'
-import tutorialObject from './tutorialObject'
-import arrow from '../../images/arrow.png'
+import TutorialCard from './TutorialCard';
+import tutorialObject from './tutorialObject';
+import arrow from '../../images/arrow.png';
+import AppContext from '../../AppContext';
+
 
 class Tutorial extends React.Component {
+    static contextType = AppContext;
+
     state = {
         card: 0
     }
@@ -12,6 +16,7 @@ class Tutorial extends React.Component {
         if (this.state.card < 4){
             this.setState({card: this.state.card + 1})
         } else {
+            this.context.handleDemo()
             this.props.history.push('/Game')
         }
     }

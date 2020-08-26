@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://localhost:3000/Search/214143 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <style type="text/css">@import url(https://use.typekit.net/lah6jvz.css);</style><style type="text/css">body {
+  margin: 0;
+  font-family: brandon-grotesque, sans-serif;
+}
+
+h4 {
+  font-family: freight-sans-pro;
+}
+
+h5 {
+  font-family: brandon-grotesque;
+  font-weight: 600;
+  font-size: 10px;
+  margin: 0px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+</style><style type="text/css">
+.headerContainer  {
+	display: flex;
+	/* border: 3px solid yellow; */
+}
+
+.headerProfilePic  {
+	width: 60px;
+	height: 60px;
+	margin: 15px;
+	border-radius:25px;
+	/* border: 3px solid green; */
+}
+
+.headerlogoContainer  {
+	display: flex;
+	align-items: center;
+	width: 33%;
+	/* border: 3px solid orange; */
+}
+
+.headerNavLinksContainer  {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	width: 33%;
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+	/* border: 3px solid blue; */
+}
+
+.topNavLinks  {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	height: 20px;
+	width: 20px;
+	margin: 0px;
+	padding: 0px;
+}</style><style type="text/css">.spanStyle {
+    margin: 2px 10%;
+}
+
+h4{
+    text-align: center;
+}
+.recipeCardContainerSmall {
+    display: block;
+    position: relative;
+    background-color: #E0FFD3;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 0px;
+    border-radius: 21px 21px 0px 0px;
+    box-shadow: 0px 11px 21px -8px rgba(0, 0, 0, 0.5);
+    /* float: left; */
+}
+
+.recipeCardContainerLarge {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    /*grid-auto-columns: minmax(10px, auto);*/
+    grid-gap: 1em;
+    position: relative;
+    background-color: #E0FFD3;
+    min-width: 100%;
+    min-height: 300px;
+    margin: 15px;
+    padding: 1em;
+    border-radius: 21px;
+    border: 6px solid orange;
+}
+
+.recipe-header-container{
+    /* border: 1px solid blue; */
+    height: 350px;
+
+}
+.recipe-tabs-container{
+    border: 4px solid blue;
+    padding: 1em;
+    text-align: left;
+}
+
+.recipe-tabs-header-cont {
+display:flex;
+flex-direction: row;
+justify-content: center;
+
+}
+
+.container3{
+    margin: 0 20%;
+    border: 1px solid blue;
+}
+.recipeCardimgContainer {
+    height: 150px;
+    width: 100%;
+    border-radius: 20px;
+    /* border: 2px solid black; */
+}
+
+.recipeCardimgStyle {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.recipeTitleContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 20px;
+    margin: 5px;
+}
+
+.recipeTitle {
+    font-family: freight-sans-pro, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: .5em;
+    line-height: 2;
+    text-align: center;
+    margin: 3px;
+    padding-top: 0px;
+}
+
+.dishdescription {
+    text-align: left;
+    margin: 10px auto;
+}
+
+/* .favBtnContainer {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    right: 5px;
+    top: 5px;
+} */
+
+.favBtn{
+    position: absolute;
+    border-radius: 50px;
+    padding: 0px;
+    height: 30px;
+    width: 30px;
+    right: 5px;
+    top: 5px;
+}
+
+
+.prepTimeAtrContainer {
+    display: none;
+}
+
+.recipeAtrPreptime{
+    display: none;
+}</style><style type="text/css">.mealbtncontainer{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-gap: .5em;
+}
+
+.mealbtn{
+	background-color: #488023;
+	max-height: 20px;
+	min-width: 45px;
+	color: white;
+	margin: 10px;
+	border-radius: 25px;
+}
+
+</style><style type="text/css">.choiceContainer{
+	display: grid;
+	grid-template-rows: repeat(4, 1fr);
+	grid-auto-columns: minmax(10px, auto);
+}
+.choiceContainer button{
+	max-height: 20px;
+}</style><style type="text/css">.postDiv {
+  width: 100%; }
+
+.postinnerDiv {
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #e8e8e8;
+  width: 18rem;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7); }
+
+.postName {
+  color: grey; }
+
+.postImage {
+  max-width: 18rem;
+  border-radius: 10px; }
+
+.user-image-container {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  margin: 5px;
+  float: left; }
+
+.user-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  margin: 0; }
+</style><style type="text/css">.post-form-container{
+    width: 80%;
+    margin: 0 auto;
+}
+.full-post-input{
+    width: 97%;
+    height: 100px;
+    margin: 0 auto;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input{
+    border: 2px solid black;
+    border-radius: 24px;
+}
+
+.post-option{
+    box-sizing: border-box;
+    width: 34%;
+    height: 30px;
+}
+.post-option-left{
+    box-sizing: border-box;
+    width: 33%;
+    height: 30px;
+    border-bottom-left-radius: 24px;
+
+}
+.post-option-right{
+    box-sizing: border-box;
+    width: 33%;
+    height: 30px;
+    border-bottom-right-radius: 24px;
+}</style><style type="text/css">.suggestedCusinesContainer  {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	overflow: auto;
+}
+
+.suggestedCusinesHeading  {
+	display: flex;
+	font-family: freight-sans-pro, sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 12px;
+	line-height: 1.6;
+	color: #9ABC34;
+
+}
+
+.hiddenStyle  {
+	display: none;
+}
+
+.post-form{
+	width: 100%;
+}
+.post-input{
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 auto;
+}
+</style><style type="text/css">.allergies-selection-form-container {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid green;
+}
+
+.allergy-selection-form {
+    display:flex;
+    flex-direction: column;
+    border: 2px solid orange;
+}
+
+.allergy-selection  {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.diet-component {
+    height: 400px;
+}</style><style type="text/css">
+
+
+.searchscreenContainer{
+
+	border: 5px solid purple;
+	overflow: scroll;
+}
+
+
+.searchResults{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-row-gap: 2em;
+	grid-column-gap: 1em;
+	padding: 2em;
+}
+
+.singleCardView{
+	display: grid;
+	grid-template-columns: 1fr;
+	padding: 2em;
+}</style><style type="text/css">
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+
+
+
+
+</style><style type="text/css">.Rp-title-User-photo img {
+height: 32px;
+width: 32px;
+border-radius: 100%;
+}
+
+.Rp-recipe-title {
+padding-left: 15px;
+}
+
+.Rp-recipe-title h3 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 620;
+font-size: 24px;
+line-height: 35px;
+}
+
+
+</style><style type="text/css">.Rp-title-header-wrapper {
+display:flex;
+align-items: center;
+width: 100%;
+height: 30px;
+margin-top: 15px;
+margin-left: 15px;
+margin-right: 15px;
+}
+
+.Rp-back-button  {
+width: 33.33%;
+float: right;
+
+}
+
+.Rp-menu-button  {
+display:flex;
+padding-right:30px;
+justify-content: flex-end;
+width: 33.33%;
+
+}
+
+.Rp-header-spacer {
+width: 33.33%;
+}</style><style type="text/css">.Rp-Photo{
+display: block;
+width: 100%;
+position: relative;
+}
+
+.Rp-Photo-Container img {
+width: 100%;
+height:400px;
+
+}
+
+.Rp-overview-info {
+position:absolute;
+bottom:0;
+left:0;
+right:0; 
+width:100%;
+display: flex;
+height: 27px;
+margin-bottom: 2px;
+align-items: center;
+justify-content: center;
+background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.33) 100%);
+}
+
+.Rp-overview-info-serves {
+display:flex;
+align-items: center;
+justify-content: center;
+width: 33%;
+}
+
+.Rp-overview-info-serves h3 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 520;
+font-size: 16px;
+line-height: 23px;
+color: #E6E6E6;
+}
+
+.Rp-overview-info-prepcook-time {
+display:flex;
+align-items: center;
+justify-content: center;
+width: 33%;
+}
+
+.Rp-overview-info-prepcook-time h3 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 520;
+font-size: 16px;
+line-height: 23px;
+color: #E6E6E6;
+}
+
+.Rp-overview-info-cals {
+display:flex;
+align-items: center;
+justify-content: center;
+width:33%;
+}
+
+.Rp-overview-info-cals h3 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 520;
+font-size: 16px;
+line-height: 23px;
+color: #E6E6E6;
+}</style><style type="text/css">.Rp-sub-menu-nav-cont {
+position: absolute;
+top: 525px;
+width:100%;
+}
+
+.Rp-sub-menu-nav-cont-2 {
+display:flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+}
+
+.Rp-sub-menu-item-overview  {
+width: 20%;
+}
+
+.Rp-sub-menu-item-overview h4 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 420;
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+letter-spacing: 0.08em;
+color: #7F7F7F;
+}
+
+.Rp-sub-menu-item-Ingredients  {
+width: 20%;
+}
+
+.Rp-sub-menu-item-Ingredients h4 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 420;
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+letter-spacing: 0.08em;
+color: #7F7F7F;
+}
+
+.Rp-sub-menu-item-Directions {
+width: 20%;
+}
+
+.Rp-sub-menu-item-Directions h4 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 420;
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+letter-spacing: 0.08em;
+color: #7F7F7F;
+}
+
+.Rp-sub-menu-item-Nutrition {
+width: 20%;
+}
+
+.Rp-sub-menu-item-Nutrition h4 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 420;
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+letter-spacing: 0.08em;
+color: #7F7F7F;
+}
+
+.Rp-sub-menu-item-Community {
+width: 20%;
+}
+
+.Rp-sub-menu-item-Community h4 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 420;
+font-size: 14px;
+line-height: 20px;
+text-align: center;
+letter-spacing: 0.08em;
+color: #7F7F7F;
+}</style><style type="text/css">.Rp-overview-cont {
+margin-left: 30px;
+margin-right: 20px;
+padding-top: 20px;
+margin-top: 30px;
+}
+
+.Rp-overview-title {
+margin-top: 0px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+
+}
+
+.Rp-overview-title h4 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 520;
+font-size: 24px;
+margin-top: 0px;
+margin-bottom: 0px;
+}
+
+.Rp-overview-body {
+    margin-top: 0px;
+}
+
+.Rp-overview-body p {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 28px;
+}</style><style type="text/css">.Rp-list-item-cont {
+display: flex;
+flex-direction:row ;
+border-bottom: 0.5px solid #ABABAB;
+margin-left: 30px;
+margin-right: 20px;
+}
+
+
+.Rp-list-item-ingredient-name {
+display: flex;
+justify-content: start;
+align-items: center;
+width:50%;
+}
+
+.Rp-list-item-ingredient-name p {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 390;
+font-size: 16px;
+padding-left: 20px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+}
+
+.Rp-list-item-ingredient-amount {
+display: flex;
+justify-content: flex-end;
+align-items: center;
+width:50%
+}
+
+.Rp-list-item-ingredient-amount p {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 390;
+font-size: 16px;
+padding-right: 20px;
+margin-bottom: 0px;
+padding-bottom: 0px;
+}</style><style type="text/css">.RpDirections-cont {
+    margin: 30px;
+}</style><style type="text/css">
+
+.Rp-directions-list-item-header-cont {
+display:flex;
+flex-direction: row;
+align-items: flex-start;
+margin-bottom: 0px;
+padding-bottom: 0px;
+}
+
+.Rp-directions-list-header-step-number {
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 620;
+font-size: 18px;
+}
+
+.Rp-directions-list-header-step-text {
+padding-left: 10px;
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 420;
+font-size: 18px;
+}
+
+.Rp-directions-list-item-header-cont p {
+ margin:0px;
+}
+
+.Rp-directions-ingredients-list-cont {
+padding-left: 18px;
+}</style><style type="text/css">.Rp-Directions-List-Item-Igredient-cont {
+margin-top: 0px;
+padding-top: 0px;
+font-family: Gotham;
+font-style: normal;
+font-weight: 350;
+font-size: 12px;
+letter-spacing: 0.05em;
+
+color: #767676;
+}</style><style type="text/css">.Rp-Nutrition-fats-cont {  
+    margin-left:20px;
+    margin-right:20px;
+}
+
+</style><style type="text/css">
+.Rp-Nuturition-fats-header {
+    display:flex;
+    align-items: center;
+
+}
+
+.Fats {
+    display:flex;
+    align-items: center;
+    width:10%
+}
+
+.Fats-amount h5 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight:520;
+font-size: 12px;
+letter-spacing: 0.05em;
+color: #767676;
+margin-bottom: 0px;
+}
+
+.Fats-amount  {
+width:80%
+}
+
+.Fats h4 { 
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 520;
+font-size: 14px;
+letter-spacing: 0.05em;
+margin-bottom: 0px;
+color: #1F2022;
+}
+
+.Fats-percentage-of-total-for-day h6 {
+font-family: Gotham;
+font-style: normal;
+font-weight: 350;
+font-size: 8px;
+color: #767676;
+margin-bottom: 0px;
+}
+
+
+
+.percentage-bar-fats-cont {
+border: 0.5px solid #C4C4C4;
+box-sizing: border-box;
+border-radius: 2px; 
+}
+
+.percentage-bar-fats{
+    height:10px;
+    width:10%;
+    background-color: #F0DC2A;
+}
+
+</style><style type="text/css">.Rp-Nuturition-Protiens-header {
+    display:flex;
+    align-items: center;
+}
+
+
+.Protiens {
+    display:flex;
+    align-items: center;
+    width:10%
+}
+
+.Protiens-amount h5 {
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight:520;
+font-size: 12px;
+letter-spacing: 0.05em;
+color: #767676;
+margin-bottom: 0px;
+}
+
+.Protiens-amount  {
+width:80%
+}
+
+.Protiens h4 { 
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 520;
+font-size: 14px;
+letter-spacing: 0.05em;
+margin-bottom: 0px;
+color: #1F2022;
+}
+
+.Protiens-percentage-of-total-for-day h6 {
+font-family: Gotham;
+font-style: normal;
+font-weight: 350;
+font-size: 8px;
+color: #767676;
+margin-bottom: 0px;
+}
+
+
+
+.percentage-bar-Protiens-cont {
+border: 0.5px solid #C4C4C4;
+box-sizing: border-box;
+border-radius: 2px; 
+}
+
+.percentage-bar-Protiens{
+    height:10px;
+    width:10%;
+    background-color: #F0DC2A;
+}
+
+</style><style type="text/css">.cookbook-container{
+    display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-row-gap: 2em;
+	grid-column-gap: 1em;
+	padding: 2em; 
+}</style><style type="text/css">
+.mealPlanDailyNavCon {
+display:flex;
+flex-direction: row;
+justify-content: center;
+border:3px solid green;
+}
+
+.mealPlanDailyNav {
+display:flex;
+flex-direction: row;
+color:blue;
+    /* border: 3px solid orange; */
+}
+
+.mealPlanSCon {
+display:flex;
+flex-direction:column ; 
+}
+
+.mealsSCon {
+margin-top: 10px;
+margin-left: 10px;
+border-bottom: 0.25px solid #C8C8C8;
+}
+
+.addmealPlanItem {
+display:flex;
+align-items: center;
+height: 25px;
+margin-top: 5px;
+margin-bottom: 10px;
+border: 1px dashed #D4D2CC;
+border-radius: 20px; 
+}
+
+.addmealPlanItem p {
+font-family: proxima-nova-condensed, sans-serif;
+font-weight: 300;
+font-style: normal;
+font-size: 12px;
+line-height: 20px;
+padding-left: 5px;
+color:#767676;
+}
+
+.addPlanItemBtn {
+display:flex;
+align-items: center;
+/* justify-content: center; */
+}
+
+.addPlanItemBtn svg {
+margin-left: 10px;
+height: 20px;
+}
+
+.selectedMealPlanItem {
+display:flex;
+align-items: center;
+height: 25px;
+margin-bottom: 5px;
+border: 1px solid #AFAFAF;
+border-radius: 20px;   
+}
+
+.selectedMealPlanItem p {
+margin-left: 10px;
+font-family: proxima-nova, sans-serif;
+font-weight: 400;
+font-style: normal;
+font-size: 12px;
+line-height: 20px;
+padding-left: 5px;
+color:#000000;;
+}
+
+
+.mealsSCon {
+ display:flex;
+ flex-direction: row;
+ /* border:3px solid blue; */
+}
+
+.mealsConleft {
+display:flex;
+flex-direction: column;
+width:60%;
+
+/* border: 3px solid black; */
+}
+
+.mealsConheading{
+display:flex;
+justify-content: left;
+/* border:1px solid green; */
+margin-top: 0px;
+margin-bottom: 0px;
+margin-bottom: 0px;
+}
+
+.mealsConheading p{
+font-family: Brandon Grotesque;
+font-style: normal;
+font-weight: 450;
+font-size: 16px;
+line-height: 20px;
+margin-bottom: 5px;
+margin-top: 0px;
+margin-left: 10px;
+}
+
+.mealsConheading h4{
+font-family: proxima-nova, sans-serif;
+font-weight: 100;
+font-size: 12px;
+font-style: normal;
+margin-left: 10px;
+margin-bottom: 0px;
+margin-top: 0px;
+}
+
+
+
+.mealsConright {
+display:flex;
+width:40%;
+/* border: 3px solid purple; */
+}
+
+
+.nutirition-info-component {
+    height: 100px;
+    widows: 100%;
+    background-color: blue;
+}
+
+
+
+</style><style type="text/css">.nutrition-list{
+    list-style: none;
+}
+
+
+.nutrition-list li {
+    text-align: left;
+}</style><style type="text/css">
+.footerLinksContainerWrapper  {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: white;
+}
+
+.footerLinksContainer {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0px;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    max-width: 720px;
+    background-color: white;
+    border: 3px solid orange;
+}
+
+.links {
+list-style: none;
+}
+
+.icon  {
+   
+}
+
+.home-icon {
+    
+}
+
+.link-click-area  {
+ 
+}
+
+
+
+</style></head>
+  <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="./React App_files/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="./React App_files/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="./React App_files/init.js"></script>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./React App_files/bundle.js"></script><script src="./React App_files/1.chunk.js"></script><script src="./React App_files/main.chunk.js"></script><script src="./React App_files/main.ce7df3d0bfb70321f519.hot-update.js"></script>
+
+<iframe style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; border: none; z-index: 2147483647;" src="./React App_files/saved_resource.html"></iframe></body></html>

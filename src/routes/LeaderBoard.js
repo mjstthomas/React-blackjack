@@ -20,7 +20,11 @@ componentDidMount(){
 }
     render(){
 
-        const rankedList = this.state.rankedUsers.map(item => <li key={item.id}>{item.user_name} <span className="wins">{item.wins}</span> </li>)
+        const rankedList = this.state.rankedUsers.map(item =>{
+            const nameArray = item.user_name.split('@');
+            const name = nameArray[0];
+             return <li key={item.id}>{name} <span className="wins">{item.wins}</span> </li>
+            })
 
         return (
             <div>

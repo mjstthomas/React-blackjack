@@ -57,7 +57,7 @@ render(){
                     {handBoard}
                 </tbody>
             </table>
-            <p>H = hit  S = stay</p>
+            <p>H = hit  S = stay  D = double</p>
             </div>
             <h1 className="board-controller" onClick={this.handleView}>?</h1>
         </div>

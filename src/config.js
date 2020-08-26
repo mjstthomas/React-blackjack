@@ -1,3 +1,5 @@
 export default {
-    API_ENDPOINT: 'https://secure-headland-88755.herokuapp.com/api',
+    API_ENDPOINT: 'http://localhost:8000/api',
   }
+
+  // 'https://secure-headland-88755.herokuapp.com/api'
