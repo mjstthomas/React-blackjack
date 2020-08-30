@@ -51,3 +51,17 @@ Knex
 Postgresql
 
 Google Firebase OAuth
+
+## Explanations of Routes
+Using Node and Express I created an API using the express.route() method that allowed for the client to interact with my Postgresql database.
+
+### Route /api/users/:user
+My users route would take the given information from the get request, check it against the postgres users table, it would find the user, join it with the user_purse that shared the same ID, and send it back.  
+If it didn't find the user, it would create one and then send the user info.
+
+### Route /api/user
+My user route was used to  patch wins, total_games, and the string assigned to the users character.
+It would also allow the user to delete itself.
+
+### Route /api/leaderboard
+My leaderBoard route would get all the users and send it back to sort on the client side.
