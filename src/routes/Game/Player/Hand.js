@@ -1,5 +1,6 @@
 import React from "react";
 import Value from './Value';
+
 export default function Hand(props){
 	return (
 		<div className="playerBoard">
@@ -7,4 +8,4 @@ export default function Hand(props){
 			{props.playerhand}
 		</div>
 		)
-}
+};

@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 class DealerCard extends React.Component{
 
@@ -8,7 +8,7 @@ class DealerCard extends React.Component{
 				<p className="top">{this.props.card}</p>
 				<p className="bottom">{this.props.card}</p>
 			</div>)
-}}
+}};
 
 
 export default DealerCard

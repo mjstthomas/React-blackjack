@@ -98,7 +98,7 @@ class App extends React.Component{
 
     handleLogoff = () =>{
         this.setState({user: {}});
-    }
+    };
 
     handleSignup = newUser => {
         newUser.id = uuidv4();
@@ -107,7 +107,7 @@ class App extends React.Component{
         newUser.correct = 0;
         const newUsers = [...this.state.users, newUser]
         this.setState({users: newUsers})
-    }
+    };
 
     handleDelete = (user) =>{
         this.setState({user: {}})
@@ -116,7 +116,7 @@ class App extends React.Component{
             body: JSON.stringify(this.state.user),
             headers: {'content-type': 'application/json'}
         })
-    }
+    };
 
     handleWin = () =>{
         const winner = {...this.state.user}
@@ -130,7 +130,7 @@ class App extends React.Component{
                 headers: {'content-type': 'application/json'}
             })
         } 
-    }
+    };
 
     //updates total games for user
 
@@ -145,7 +145,7 @@ class App extends React.Component{
             headers: {'content-type': 'application/json'}
             })
         }
-    }
+    };
 
     handleNewImage = image =>{
         const player = {...this.state.user}
@@ -162,7 +162,7 @@ class App extends React.Component{
                     headers: {'content-type': 'application/json'}
                 })
         }
-    }
+    };
 
 
     render(){
@@ -181,7 +181,7 @@ class App extends React.Component{
             image: this.state.image,
             handleNewImage: this.handleNewImage,
             tutorial: this.state.tutorial
-        }
+        };
         return (
             <AppContext.Provider value={context}>
                 <div className="App">
@@ -204,6 +204,6 @@ class App extends React.Component{
                 </div>
             </AppContext.Provider>
         )}
-}
+};
 
 export default App;

@@ -12,5 +12,5 @@ class Strategy extends React.Component {
         )
     }
 
-}
+};
 export default Strategy;

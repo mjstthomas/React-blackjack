@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 class ScoreBoard extends React.Component{
 	state ={
 		playerScore: 0,
 		dealerScore: 0
-	}
+	};
 
 	compare = (dealerScore, playerScore) =>{
 		
@@ -31,7 +31,7 @@ class ScoreBoard extends React.Component{
 		} else {
 			this.props.nextHand()
 		}
-	}
+	};
 	render(){
 		const newDealerCards = [...this.props.dealerCards].sort((a, b)=> a.value - b.value)
 		const newPlayerCards = [...this.props.playerCards].sort((a, b)=> a.value - b.value)
@@ -47,11 +47,11 @@ class ScoreBoard extends React.Component{
 		    return acc + 11 > 21 ? acc + 1 : acc + 11;
 		  }
 		  return acc + obj.value;
-		}, 0)
+		}, 0);
 	
 
-		const scoreBoard = () => this.props.handOver ? this.compare(dealerValue, playerValue) : null
-		scoreBoard()
+		const scoreBoard = () => this.props.handOver ? this.compare(dealerValue, playerValue) : null;
+		scoreBoard();
 		return (
 			<div className="scoreBoard">
 				<div className="Board">
@@ -61,5 +61,5 @@ class ScoreBoard extends React.Component{
 
 				)
 	}
-}
+};
 export default ScoreBoard

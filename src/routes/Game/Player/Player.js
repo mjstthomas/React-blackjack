@@ -7,7 +7,7 @@ class Player extends React.Component{
 
 state = {
 	playerCards: this.props.playerCards
-}
+};
 
 
 	render(props){
@@ -45,6 +45,6 @@ state = {
 			</div>
 		)
 	}
-}
+};
 
-export default Player
+export default Player;

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 class ScoreBoard extends React.Component{
 	state ={
 		playerScore: 0,
 		dealerScore: 0
-	}
+	};
 
 	compare = (dealerScore, playerScore) =>{
 		
@@ -27,7 +27,7 @@ class ScoreBoard extends React.Component{
 		} else {
 			this.props.nextHand()
 		}
-	}
+	};
 	render(){
 		const dealerValue = this.props.dealerCards.reduce((acc, obj) => {
 		  if (obj.face === "A"){
@@ -53,5 +53,5 @@ class ScoreBoard extends React.Component{
 
 				)
 	}
-}
-export default ScoreBoard
+};
+export default ScoreBoard;

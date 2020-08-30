@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 
 export default function Hand(props){
 	return (
@@ -6,4 +6,4 @@ export default function Hand(props){
 			{props.dealerhand}
 		</div>
 		)
-}
+};

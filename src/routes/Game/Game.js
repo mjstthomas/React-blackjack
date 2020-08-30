@@ -52,7 +52,7 @@ class Game extends React.Component {
     gameStart: false,
     handOver: false
     })
-  }
+  };
 
 
 
@@ -75,7 +75,7 @@ class Game extends React.Component {
       dealerCardsOnTurn: dealer,
       gameStart: true
     })
-  }
+  };
 
 
 
@@ -96,7 +96,7 @@ class Game extends React.Component {
     })
     this.gameStart()
     }, 1500);
-  }
+  };
 
 
 
@@ -112,7 +112,7 @@ class Game extends React.Component {
       doubleDown: false
     })
     this.gameStart()
-  }
+  };
 
 
 
@@ -134,7 +134,7 @@ class Game extends React.Component {
       this.setState({playerBust: true})
       this.changeSides()
     }
-  }
+  };
 
 
 
@@ -144,7 +144,7 @@ class Game extends React.Component {
           dealerTurn: !this.state.dealerTurn,
           showDealerCard: true
         })
-  }
+  };
 
 //handles double down button, uses handle deal and change sides
 
@@ -152,7 +152,7 @@ handleDouble = () =>{
   this.setState({doubleDown: true})
   this.handleDeal()
   this.changeSides()
-}
+};
 //deals cards to the dealer 
   handleDealer= () => {
         const newCard = this.state.cards.shift()
@@ -161,7 +161,7 @@ handleDouble = () =>{
                 dealerCards: newHand,
                 dealerCardsOnTurn: newHand
             })
-  }
+  };
 
 
 
@@ -171,7 +171,7 @@ handleDouble = () =>{
       handOver: true,
       dealerTurn: false,
     })
-  }
+  };
 
 
 
@@ -180,7 +180,7 @@ handleDouble = () =>{
       handOver: false,
       playerBust: false,
     })
-  }
+  };
 
 
 
@@ -200,7 +200,7 @@ handleDouble = () =>{
       setTimeout(()=>{
         this.setState({playerHit: false})
       }, 1000)
-  }
+  };
 
 
 
@@ -208,16 +208,16 @@ handleDouble = () =>{
     let hit = n;
     if (this.state.doubleDown){
       hit = n * 2;
-    }
+    };
 
     if (this.state.poweredUp){
        hit = hit * 1.5;
-    } 
+    };
 
     if (this.state.dealerHealth <= hit){
       this.context.handleWin()
       this.props.history.push('/Win')
-    } 
+    };
     
       this.setState({
         dealerHealth: this.state.dealerHealth - hit,
@@ -229,7 +229,7 @@ handleDouble = () =>{
           poweredUp: false
         })
       }, 1000)
-    }
+    };
 
 
 
@@ -242,13 +242,13 @@ handleStrategy = (playerValue, playerChoice) =>{
       this.setState({poweredUp: true})
     } 
 
-}
+};
 
 
 
 componentDidMount(){
   this.context.demo === false ? this.context.manageSignIn() : this.props.history.push('/Tutorial');
-}
+};
 
 
   render(){
@@ -322,6 +322,6 @@ componentDidMount(){
       </div>
     );
   }
-}
+};
 
 export default Game;

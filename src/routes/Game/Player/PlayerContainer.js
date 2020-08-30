@@ -1,9 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './PlayerContainer.css'
-import AppContext from '../../../AppContext'
-import pow from '../../../images/pow.png'
-import StrategyBoard from './StrategyBoard/StrategyBoard'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './PlayerContainer.css';
+import AppContext from '../../../AppContext';
+import StrategyBoard from './StrategyBoard/StrategyBoard';
 
 class PlayerContainer extends React.Component {
     static contextType = AppContext
@@ -13,7 +12,7 @@ class PlayerContainer extends React.Component {
             healthArray.push(' ')
         }
         return healthArray
-    }
+    };
 
     render(){
         let i = 0;
@@ -30,6 +29,6 @@ class PlayerContainer extends React.Component {
             </div>
         )
     }
-}
+};
 
-export default PlayerContainer
+export default PlayerContainer;

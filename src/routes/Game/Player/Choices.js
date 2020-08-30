@@ -1,21 +1,21 @@
-import React from 'react'
+import React from 'react';
 
 class Choices extends React.Component{
 
 	handleHit = () =>{
 		this.props.handleDeal();
 		this.props.handleStrategy(this.props.playerValue, "h");
-	}
+	};
 
 	handleStay = () =>{
 		this.props.changeSides();
 		this.props.handleStrategy(this.props.playerValue, "s");
-	}
+	};
 
 	handleDouble = () =>{
 		this.props.handleDouble();
 		this.props.handleStrategy(this.props.playerValue, "d")
-	}
+	};
 	render(props){
 		return(
 			<div className="btn-container">
@@ -25,5 +25,5 @@ class Choices extends React.Component{
 	        	{this.props.gameStart && !this.props.dealerTurn && !this.props.showDealerCard && <button className="stay-btn" type="button" onClick={this.handleStay}>Stay</button>}
 				{this.props.gameStart && !this.props.dealerTurn && !this.props.showDealerCard && <button className="double-btn" type="button" onClick={this.handleDouble}>Double</button>}
 	        </div>)}
-}
-export default Choices
+};
+export default Choices;

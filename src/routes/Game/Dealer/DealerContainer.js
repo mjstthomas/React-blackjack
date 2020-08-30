@@ -1,7 +1,6 @@
-import React from 'react'
-import './DealerContainer.css'
-import images from '../../../images/images'
-import pow from '../../../images/pow.png'
+import React from 'react';
+import './DealerContainer.css';
+import images from '../../../images/images';
 
 class DealerContainer extends React.Component {
 
@@ -11,7 +10,7 @@ class DealerContainer extends React.Component {
             healthArray.push(' ')
         }
         return healthArray
-    }
+    };
 
     render(){
         let i = 0;
@@ -27,6 +26,6 @@ class DealerContainer extends React.Component {
             </div>
         )
     }
-}
+};
 
-export default DealerContainer
+export default DealerContainer;

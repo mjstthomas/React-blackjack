@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
 
     handleLogoff = () =>{
         this.props.handleLogoff()
-    }
+    };
 
     render(){
         return (
@@ -25,5 +25,5 @@ class Header extends React.Component {
             </nav>
         )
     }
-}
+};
 export default Header;

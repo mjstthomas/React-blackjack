@@ -1,7 +1,7 @@
-import React from "react"
-import Hand from './Hand'
-import DealerCard from './DealerCard'
-import FaceDownDealerCard from './FaceDownDealerCard'
+import React from "react";
+import Hand from './Hand';
+import DealerCard from './DealerCard';
+import FaceDownDealerCard from './FaceDownDealerCard';
 
 class Dealer extends React.Component{
   
@@ -43,7 +43,7 @@ deal = (dealerValue) => dealerValue < 17 ? this.props.handleDealer() : this.prop
 			/>
 		</div>
 	)}
-}
+};
 
 
 export default Dealer
