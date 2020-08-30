@@ -1,8 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-#Battle Blackjack!
+# Battle Blackjack!
 
-###link to site:
+### link to site:
 https://vercel.com/mjstthomas/react-blackjack/ashek0hms
 
 ![image](https://user-images.githubusercontent.com/53156193/90138764-586c1800-dd2c-11ea-8556-bb8981cfd9da.png)
@@ -15,7 +15,7 @@ https://vercel.com/mjstthomas/react-blackjack/ashek0hms
 
 
 
-###Summary:
+### Summary:
 
 "  Created a fun and entertaining way to teach basic blackjack strategy."
 
@@ -32,36 +32,36 @@ https://vercel.com/mjstthomas/react-blackjack/ashek0hms
 
 
 
-###Technologies:
+### Technologies
 
-React.js
+* React.js
 
-HTML
+* HTML
 
-CSS
+* CSS
 
-Javascript
+* Javascript
 
-Node.js
+* Node.js
 
-Express
+* Express
 
-Knex
+* Knex
 
-Postgresql
+* Postgresql
 
-Google Firebase OAuth
+* Google Firebase OAuth
 
-## Explanations of Routes
+### Explanations of Routes
 Using Node and Express I created an API using the express.route() method that allowed for the client to interact with my Postgresql database.
 
-### Route /api/users/:user
+#### Route /api/users/:user
 My users route would take the given information from the get request, check it against the postgres users table, it would find the user, join it with the user_purse that shared the same ID, and send it back.  
 If it didn't find the user, it would create one and then send the user info.
 
-### Route /api/user
+#### Route /api/user
 My user route was used to  patch wins, total_games, and the string assigned to the users character.
 It would also allow the user to delete itself.
 
-### Route /api/leaderboard
+#### Route /api/leaderboard
 My leaderBoard route would get all the users and send it back to sort on the client side.
