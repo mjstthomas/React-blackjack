@@ -28,8 +28,13 @@ const config = {
 export default function LandingPage(){
     return (
       <div>
+        <h1>Battle Blackjack</h1>
         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
         <p>First time? Try the demo instead.</p>
+        <div className="instruction-container">
+          <p>a game built to teach you how to follow basic blackjack strategy with a fun and exciting twist!</p>
+          <p>If you need help on what to do, just hit the "?" to open a strategy board.</p>
+        </div>
       </div>
     )
 }
