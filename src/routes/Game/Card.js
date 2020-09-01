@@ -1,5 +1,5 @@
-import React from 'react'
-import "./card.css"
+import React from 'react';
+import "./card.css";
 
 export default function Card(props){
 	const myStyle = {
@@ -18,4 +18,4 @@ export default function Card(props){
 				<p className="top">{props.card}</p>
 				<p className="bottom">{props.card}</p>
 			</div>)
-}
+};

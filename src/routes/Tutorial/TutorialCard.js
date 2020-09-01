@@ -15,7 +15,7 @@ class TutorialCard extends React.Component{
 			<p className="bottom">{this.props.card}</p>
         </div>
     )
-    }
-}
+    };
+};
 
 export default TutorialCard;

@@ -62,4 +62,4 @@ class ScoreBoard extends React.Component{
 				)
 	}
 };
-export default ScoreBoard
+export default ScoreBoard;

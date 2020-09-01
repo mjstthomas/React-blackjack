@@ -203,7 +203,7 @@ class App extends React.Component{
                     </div>
                 </div>
             </AppContext.Provider>
-        )}
+        )};
 };
 
 export default App;

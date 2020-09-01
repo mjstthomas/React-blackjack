@@ -21,7 +21,7 @@ class Lose extends React.Component{
                 <button className="newGame-btn" onClick={this.handleClick}>Try again?</button>
             </div>
         </div>
-    )}
-}
+    )};
+};
 
 export default Lose;

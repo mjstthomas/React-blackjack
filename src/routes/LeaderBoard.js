@@ -1,14 +1,14 @@
-import React from 'react'
-import config from '../config'
-import './LeaderBoard.css'
+import React from 'react';
+import config from '../config';
+import './LeaderBoard.css';
 
 class LeaderBoard extends React.Component{
 state = {
     rankedUsers: []
-}
+};
 goBack = () =>{
     this.props.history.goBack()
-}
+};
 
 componentDidMount(){
     fetch(`${config.API_ENDPOINT}/LeaderBoard`)
@@ -17,14 +17,14 @@ componentDidMount(){
             const sortedResult = result.sort((a, b) => b.wins - a.wins)
             this.setState({rankedUsers: sortedResult})
         })
-}
+};
     render(){
 
         const rankedList = this.state.rankedUsers.map(item =>{
             const nameArray = item.user_name.split('@');
             const name = nameArray[0];
              return <li key={item.id}>{name} <span className="wins">{item.wins}</span> </li>
-            })
+            });
 
         return (
             <div>
@@ -38,6 +38,6 @@ componentDidMount(){
                 </div>
             </div>
         )
-    }
-}
+    };
+};
 export default LeaderBoard;

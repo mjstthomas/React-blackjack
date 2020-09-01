@@ -1,5 +1,5 @@
-import React from 'react'
-import AppContext from '../AppContext'
+import React from 'react';
+import AppContext from '../AppContext';
 
 class Signup extends React.Component{
     static contextType = AppContext;
@@ -10,17 +10,17 @@ class Signup extends React.Component{
         password: "",
         retype_password: "",
         error: ""
-    }
+    };
 
     handleChange= (event) =>{
         const { name, value } = event.target
         this.setState({[name]: value})
-    }
+    };
 
     handleSubmit = event =>{
-        event.preventDefault()
-        const { user_name, user_email, password, retype_password } = this.state
-        const newUser = { user_name, user_email, password, retype_password }
+        event.preventDefault();
+        const { user_name, user_email, password, retype_password } = this.state;
+        const newUser = { user_name, user_email, password, retype_password };
 
         if (password.length < 7){
             return this.setState({error: "password must be 7 characters or longer"})
@@ -34,11 +34,11 @@ class Signup extends React.Component{
 
         this.props.history.push('/Login')
 
-    }
+    };
 
     handleClick = event =>{
         this.setState({error: ""})
-    }
+    };
 
     render(props){
         return (
@@ -60,7 +60,7 @@ class Signup extends React.Component{
                 </div>
             </div>
         )
-    }
-}
+    };
+};
 
 export default Signup;

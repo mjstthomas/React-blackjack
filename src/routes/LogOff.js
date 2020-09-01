@@ -1,15 +1,15 @@
-import React from  'react'
-import AppContext from '../AppContext'
+import React from  'react';
+import AppContext from '../AppContext';
 
 class LogOff extends React.Component{
-    static contextType = AppContext
+    static contextType = AppContext;
     handleLogOff = ()=>{
         this.context.handleLogoff()
         this.props.history.push('/')
-    }
+    };
     handleCancel=()=>{
         this.props.history.push('/Game')
-    }
+    };
 
     render(){
         return (
@@ -19,6 +19,6 @@ class LogOff extends React.Component{
                 <button onClick={this.handleCancel}>No</button>
             </div>
         )
-    }
-}
+    };
+};
 export default LogOff;

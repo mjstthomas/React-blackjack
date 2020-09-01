@@ -1,6 +1,6 @@
-import React from 'react'
-import AppContext from '../AppContext'
-import images from '../images/images'
+import React from 'react';
+import AppContext from '../AppContext';
+import images from '../images/images';
 
 
 class Profile extends React.Component{
@@ -8,26 +8,26 @@ class Profile extends React.Component{
     state={
         change: false,
         image: ''
-    }
+    };
 
     handleChangeImage = () =>{
         this.setState({change: !this.state.change})
-    }
+    };
     handleClick = () =>{
         this.props.history.goBack();
-    }
+    };
 
     handleDelete = () =>{
         this.context.handleDelete()
         this.props.history.push('/')
-    }
+    };
     handleImage = event =>{
         const { name } = event.target
         this.context.handleNewImage(name)
         this.setState({change: false})
-    }
+    };
     render(){
-        const user = this.context.user
+        const user = this.context.user;
         return (
             <div>
                 <div className="goback">
@@ -60,7 +60,7 @@ class Profile extends React.Component{
                     </div>}
             </div>
         )
-    }
-}
+    };
+};
 
 export default Profile;

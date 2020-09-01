@@ -33,6 +33,6 @@ const users = [{
     wins: 72,
     total_games: 86,
     correct: 61
-}]
+}];
 
 export default users;

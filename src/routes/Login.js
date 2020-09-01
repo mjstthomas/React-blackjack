@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContext from '../AppContext'
+import AppContext from '../AppContext';
  
 
 class Login extends React.Component {
@@ -9,7 +9,7 @@ class Login extends React.Component {
     email: "",
     password: "",
     error: ""
-  }
+  };
 
   handleSubmit = event =>{
     event.preventDefault()
@@ -20,12 +20,12 @@ class Login extends React.Component {
         this.props.history.push('/Game')
       }
     }, 1000)
-  }
+  };
 
   handleClick= event =>{
     const { name, value } = event.currentTarget
     this.setState({ [name]: value})
-  }
+  };
     render(){
         return (
           <div>
@@ -38,7 +38,7 @@ class Login extends React.Component {
               <p>{this.state.error}</p>
         </div>
         )
-    }
-}
+    };
+};
 
 export default Login;

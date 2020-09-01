@@ -24,6 +24,6 @@ class Header extends React.Component {
                     </ul>}
             </nav>
         )
-    }
+    };
 };
 export default Header;

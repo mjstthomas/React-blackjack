@@ -10,7 +10,7 @@ class Tutorial extends React.Component {
 
     state = {
         card: 0
-    }
+    };
 
     handleNext = () =>{
         if (this.state.card < 4){
@@ -19,7 +19,7 @@ class Tutorial extends React.Component {
             this.context.handleDemo()
             this.props.history.push('/Game')
         }
-    }
+    };
     render(props){
         const item = tutorialObject[this.state.card]
         return (
@@ -32,8 +32,8 @@ class Tutorial extends React.Component {
                 </div>
             </div>
         )
-    }
+    };
 
-}
+};
 
 export default Tutorial;
