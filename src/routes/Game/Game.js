@@ -247,7 +247,7 @@ handleStrategy = (playerValue, playerChoice) =>{
 
 
 componentDidMount(){
-  this.context.demo === false ? this.context.manageSignIn() : this.props.history.push('/Tutorial');
+  this.context.demo === false ? this.context.manageSignIn() : console.log('you are in demo mode');
 };
 
 

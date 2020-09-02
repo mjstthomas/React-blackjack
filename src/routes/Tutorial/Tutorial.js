@@ -16,7 +16,7 @@ class Tutorial extends React.Component {
         if (this.state.card < 4){
             this.setState({card: this.state.card + 1})
         } else {
-            this.context.handleDemo()
+            
             this.props.history.push('/Game')
         }
     };

@@ -32,8 +32,10 @@ export default function LandingPage(){
         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
         <p>First time? Try the demo instead.</p>
         <div className="instruction-container">
-          <p>a game built to teach you how to follow basic blackjack strategy with a fun and exciting twist!</p>
-          <p>If you need help on what to do, just hit the "?" to open a strategy board.</p>
+          <p>Battle Blackjack is a game built to teach you how to follow basic blackjack strategy with a fun and exciting twist!</p>
+          <p>If this is your first time, click on the demo link above to walk thru the basics</p>
+          <p>During the game, if you need help on what to do, just hit the "?" to open a strategy board.</p>
+          <p>Selecting the leaderboard link will show how you are doing against fellow players</p>
         </div>
       </div>
     )
