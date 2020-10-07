@@ -1,22 +1,22 @@
 .App {
-  font-family: 'Luckiest Guy', cursive;
+  font-family: "Luckiest Guy", cursive;
   text-align: center;
   display: grid;
   grid-template-rows: repeat(3, auto);
   height: 100%;
 }
-h1{
+h1 {
   text-shadow: 3px 3px 3px white;
 }
-.hidden{
+.hidden {
   display: none;
 }
-.Game{
+.Game {
   height: 70px;
   display: grid;
   grid-template-rows: 2fr 1fr 2fr 1fr;
 }
-.score{
+.score {
   position: relative;
   bottom: 0;
   right: 0;
@@ -25,7 +25,7 @@ h1{
   border: 1px solid black;
   margin: 10px;
 }
-.dealerScore{
+.dealerScore {
   position: absolute;
   top: 0;
   right: 0;
@@ -42,20 +42,20 @@ h1{
     animation: App-logo-spin infinite 20s linear;
   }
 }
-@keyframes hit{
-  0%{
+@keyframes hit {
+  0% {
     right: 2px;
   }
-  25%{
+  25% {
     left: 4px;
   }
   50% {
     right: 4px;
   }
-  75%{
+  75% {
     left: 4px;
   }
-  100%{
+  100% {
     right: 2px;
   }
 }
@@ -74,16 +74,17 @@ h1{
 .App-link {
   color: #61dafb;
 }
-body{
+body {
   height: fit-content;
-  background: url("https://us.123rf.com/450wm/malekas/malekas1405/malekas140500008/28502181-green-felt-texture.jpg?ver=6") no-repeat center center fixed;
+  background: url("https://us.123rf.com/450wm/malekas/malekas1405/malekas140500008/28502181-green-felt-texture.jpg?ver=6")
+    no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 
-nav{
+nav {
   width: 100%;
   height: 20px;
   text-align: right;
@@ -91,7 +92,7 @@ nav{
   margin-top: 5px;
   /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%), rgb(129, 120, 120); */
 }
-.link{
+.link {
   text-decoration: none;
   background-color: rgb(16, 16, 184);
   color: white;
@@ -99,57 +100,56 @@ nav{
   font-size: 20px;
 }
 
-.options{
+.options {
   box-sizing: border-box;
   list-style: none;
   height: 100%;
   margin: 0;
 }
-.options li{
+.options li {
   text-decoration: none;
   display: inline-block;
   margin: 0 1em;
-
 }
-.game-container{
+.game-container {
   padding: 2em;
 }
-.dealer-container{
+.dealer-container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
 }
-.dealerBoard{
+.dealerBoard {
   height: 125px;
   width: 100%;
   margin: 25px;
 }
-.centerBoard{
+.centerBoard {
   height: 100px;
   width: 100%;
 }
-.player-container{
+.player-container {
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
-.placeholder{
+.placeholder {
   width: 100%;
 }
-.playerBoard{
+.playerBoard {
   height: 150px;
   width: 100%;
   margin: 25px;
 }
-.Board{
+.Board {
   list-style: none;
 }
-.Board li{
+.Board li {
   display: inline-block;
   margin: 0 20%;
 }
-.btn-container{
+.btn-container {
   width: 100%;
 }
-.player-skill{
+.player-skill {
   width: 100%;
 }
 @keyframes App-logo-spin {
@@ -161,8 +161,8 @@ nav{
   }
 }
 
-.newGame-btn{
-  font-family: 'Luckiest Guy', cursive;
+.newGame-btn {
+  font-family: "Luckiest Guy", cursive;
   width: 5em;
   height: 5em;
   border-radius: 50px;
@@ -170,11 +170,11 @@ nav{
   background-color: black;
   color: white;
   font-weight: 500;
-  font-size: .7em;
+  font-size: 0.7em;
   box-shadow: 3px 3px 3px black;
 }
-.newHand-btn{
-  font-family: 'Luckiest Guy', cursive;
+.newHand-btn {
+  font-family: "Luckiest Guy", cursive;
   margin: 1em;
   width: 5em;
   height: 5em;
@@ -183,11 +183,11 @@ nav{
   background-color: green;
   color: white;
   font-weight: 700;
-  font-size: .7em;
+  font-size: 0.7em;
   box-shadow: 3px 3px 3px black;
 }
-.deal-btn{
-  font-family: 'Luckiest Guy', cursive;
+.deal-btn {
+  font-family: "Luckiest Guy", cursive;
   margin: 1.5em;
   width: 5em;
   height: 5em;
@@ -196,11 +196,11 @@ nav{
   background-color: red;
   color: white;
   font-weight: 500;
-  font-size: .6em;
+  font-size: 0.6em;
   box-shadow: 3px 3px 3px black;
 }
-.stay-btn{
-  font-family: 'Luckiest Guy', cursive;
+.stay-btn {
+  font-family: "Luckiest Guy", cursive;
   margin: 1.5em;
   width: 5em;
   height: 5em;
@@ -209,11 +209,11 @@ nav{
   background-color: blue;
   color: white;
   font-weight: 500;
-  font-size: .6em;
+  font-size: 0.6em;
   box-shadow: 3px 3px 3px black;
 }
-.double-btn{
-  font-family: 'Luckiest Guy', cursive;
+.double-btn {
+  font-family: "Luckiest Guy", cursive;
   margin: 1.5em;
   width: 5em;
   height: 5em;
@@ -222,11 +222,11 @@ nav{
   background-color: white;
   color: black;
   font-weight: 500;
-  font-size: .6em;
+  font-size: 0.6em;
   box-shadow: 3px 3px 3px black;
 }
-.goBack-btn{
-  font-family: 'Luckiest Guy', cursive;
+.goBack-btn {
+  font-family: "Luckiest Guy", cursive;
   margin: 2em auto;
   width: 5em;
   height: 5em;
@@ -235,53 +235,53 @@ nav{
   background-color: yellow;
   color: black;
   font-weight: 500;
-  font-size: .7em;
+  font-size: 0.7em;
   box-shadow: 3px 3px 3px black;
 }
-.myStyle{
-	display: inline-block;
-	position: relative;
-	font-size: 24px;
-	width: 70px;
-	height: 125px;
-	border: 1px solid white;
-	border-radius: 15px;
-	background-color: black;
-	color: white;
+.myStyle {
+  display: inline-block;
+  position: relative;
+  font-size: 24px;
+  width: 70px;
+  height: 125px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
   margin-left: -40px;
   box-shadow: 3px 3px rgb(97, 95, 95);
 }
-.faceDownStyle{
+.faceDownStyle {
   display: inline-block;
-	position: relative;
-	font-size: 24px;
-	width: 70px;
-	height: 125px;
-	border: 1px solid white;
-	border-radius: 15px;
-	background-color: black;
-	color: black;
-	margin-left: -40px;
+  position: relative;
+  font-size: 24px;
+  width: 70px;
+  height: 125px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: black;
+  color: black;
+  margin-left: -40px;
 }
-.user-image-container{
+.user-image-container {
   height: 30px;
   width: 30px;
   border-radius: 25px;
   float: left;
 }
-img{
+img {
   height: 30px;
   width: 30px;
   border-radius: 25px;
 }
-.email-container{
+.email-container {
   width: 200px;
 }
-.password-container{
+.password-container {
   width: 200px;
 }
 
-.instruction-container{
+.instruction-container {
   width: 80%;
   padding: 1em;
   margin: auto;
@@ -290,7 +290,7 @@ img{
   border-radius: 25px;
   box-shadow: 5px 5px 5px black;
 }
-.signup-form-container{
+.signup-form-container {
   width: 80%;
   height: 20em;
   margin: auto;
@@ -301,7 +301,7 @@ img{
   box-shadow: 5px 5px 5px black;
 }
 
-.profile-container{
+.profile-container {
   width: 80%;
   height: 20em;
   margin: auto;
@@ -312,14 +312,14 @@ img{
   box-shadow: 5px 5px 5px black;
 }
 
-.delete-container{
+.delete-container {
   position: relative;
   right: 0;
   bottom: 0;
   margin: 10px;
 }
 
-.strategy-message{
+.strategy-message {
   width: 40%;
   height: 60%;
   color: aliceblue;
@@ -332,24 +332,24 @@ img{
   box-shadow: 5px 5px 5px black;
 }
 
-.image-form-container{
+.image-form-container {
   display: grid;
   grid-template-columns: repeat(3, auto);
 }
-.deck-container{
+.deck-container {
   display: none;
 }
 @media screen and (min-width: 750px) {
-  .deck-container{
+  .deck-container {
     display: block;
   }
-  .dealer-container{
+  .dealer-container {
     height: 250px;
   }
-  .player-container{
+  .player-container {
     height: 250px;
   }
-  .myStyle{
+  .myStyle {
     display: inline-block;
     position: relative;
     font-size: 24px;
@@ -361,7 +361,7 @@ img{
     color: white;
     margin-left: -40px;
   }
-  .faceDownStyle{
+  .faceDownStyle {
     display: inline-block;
     position: relative;
     font-size: 24px;
@@ -373,28 +373,28 @@ img{
     color: black;
     margin-left: -40px;
   }
-  .player-image{
+  .player-image {
     height: 150px;
     width: 90px;
   }
-  .player-image-hit{
+  .player-image-hit {
     height: 150px;
     width: 90px;
   }
-  
-  .player-image-powered{
+
+  .player-image-powered {
     height: 150px;
     width: 90px;
   }
-  .dealer-image{
+  .dealer-image {
     height: 150px;
     width: 90px;
   }
-  .dealer-image-hit{
+  .dealer-image-hit {
     height: 150px;
     width: 90px;
   }
-  .newGame-btn{
+  .newGame-btn {
     margin: 5em;
     width: 5em;
     height: 5em;
@@ -403,10 +403,10 @@ img{
     background-color: black;
     color: white;
     font-weight: 500;
-    font-size: .7em;
+    font-size: 0.7em;
     box-shadow: 3px 3px 3px black;
   }
-  .newHand-btn{
+  .newHand-btn {
     margin: 5em;
     width: 5em;
     height: 5em;
@@ -415,10 +415,10 @@ img{
     background-color: green;
     color: white;
     font-weight: 500;
-    font-size: .7em;
+    font-size: 0.7em;
     box-shadow: 3px 3px 3px black;
   }
-  .deal-btn{
+  .deal-btn {
     margin: 5em;
     width: 5em;
     height: 5em;
@@ -427,10 +427,10 @@ img{
     background-color: red;
     color: white;
     font-weight: 500;
-    font-size: .7em;
+    font-size: 0.7em;
     box-shadow: 3px 3px 3px black;
   }
-  .stay-btn{
+  .stay-btn {
     margin: 5em;
     width: 5em;
     height: 5em;
@@ -439,10 +439,10 @@ img{
     background-color: blue;
     color: white;
     font-weight: 500;
-    font-size: .7em;
+    font-size: 0.7em;
     box-shadow: 3px 3px 3px black;
   }
-  .double-btn{
+  .double-btn {
     margin: 5em;
     width: 5em;
     height: 5em;
@@ -451,10 +451,10 @@ img{
     background-color: white;
     color: black;
     font-weight: 500;
-    font-size: .7em;
+    font-size: 0.7em;
     box-shadow: 3px 3px 3px black;
   }
-  .goBack-btn{
+  .goBack-btn {
     margin: auto;
     width: 5em;
     height: 5em;
@@ -463,7 +463,7 @@ img{
     background-color: yellow;
     color: black;
     font-weight: 500;
-    font-size: .7em;
+    font-size: 0.7em;
     box-shadow: 3px 3px 3px black;
   }
 }

@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
-export default function Value(props){
-	return (
-		<p className="dealerScore">{props.dealerValue}</p>
-		)
-};
+export default function Value(props) {
+  return <p className="dealerScore">{props.dealerValue}</p>;
+}

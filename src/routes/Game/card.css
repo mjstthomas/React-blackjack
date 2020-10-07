@@ -1,26 +1,25 @@
-.top{
-	font-family: 'Luckiest Guy', cursive;
-	position: absolute;
-	top: 2px;
-	left: 5px;
-	font-size: .8em;
-
+.top {
+  font-family: "Luckiest Guy", cursive;
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  font-size: 0.8em;
 }
-.bottom{
-	font-family: 'Luckiest Guy', cursive;
-	position: absolute;
-	bottom: 2px;
-	right: 5px;
-	font-size: .8em;
+.bottom {
+  font-family: "Luckiest Guy", cursive;
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+  font-size: 0.8em;
 }
-.deckStyle{
-	position: relative;
-	font-size: 24px;
-	width: 70px;
-	height: 125px;
-	border: 1px solid white;
-	border-radius: 15px;
-	background-color: black;
-	color: white;
-	margin-left: -110px;
+.deckStyle {
+  position: relative;
+  font-size: 24px;
+  width: 70px;
+  height: 125px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+  margin-left: -110px;
 }
